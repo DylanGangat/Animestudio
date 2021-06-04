@@ -1,0 +1,35 @@
+h1,
+h2,
+h3 {
+    line-height: 1.05;
+}
+
+h1,
+h2 {
+    font-weight: var(--fw-300);
+    color: var(--fg, var(--clr-secondary));
+}
+
+h1 {
+    font-size: var(--fs-800);
+    letter-spacing: -1.5px;
+}
+
+h2 {
+    font-size: var(--fs-700);
+    letter-spacing: -0.5px;
+}
+
+.sub-heading {
+    font-size: var(--fs-600);
+}
+
+.question-title,
+.subtitle {
+    font-size: var(--fs-500);
+}
+
+.question-title {
+    font-weight: var(--fw-700); 
+}
+

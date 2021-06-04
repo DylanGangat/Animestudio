@@ -19,6 +19,7 @@ h1,
 h2,
 h3,
 h4,
+h5,
 p,
 figure,
 blockquote,
@@ -64,10 +65,14 @@ select {
 // Set core body defaults
 
 body {
-  background-color: crimson;
-  min-height: 100vh;
+  font-family: var(--ff-primary);
+  font-size: var(--fs-400);
+  font-weight: var(--fw-400);
   line-height: 1.5;
+  min-height: 100vh;
   text-rendering: optimizeSpeed;
+  color: var(--clr-primary);
+  background-color: var(--clr-base);
 }
 
 // Remove all animations, transitions and smooth scroll for people that prefer not to see them

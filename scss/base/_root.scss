@@ -1,3 +1,40 @@
 :root {
-    --ff-primary: 'Open Sans', sans-serif;
+  // colours
+
+  --clr-primary: #2c3842;
+  --clr-secondary: hsl(256, 78%, 53%);
+  --clr-accent: hsl(0, 100%, 93%);
+  --clr-base: hsl(0, 0%, 100%);
+
+  --clr-grey-400: hsl(0, 0%, 67%);
+  --clr-grey-600: hsl(162, 4%, 53%);
+
+  // font family
+
+  --ff-primary: "Open Sans", sans-serif;
+
+  // font size
+
+  --fs-300: 0.875rem; // btn
+  --fs-400: 1rem; // p
+  --fs-500: 1.25rem; // subtitle  + question
+  --fs-600: 1.5rem; // sub heading
+  --fs-700: 2.125rem; // section title
+  --fs-800: 3rem; // main heading
+
+//   @media (min-width: ) {
+//     --fs-300: 0.875rem; // btn
+//     --fs-400: 1rem; // p
+//     --fs-500: 1.5rem; // subtitle  + question
+//     --fs-600: 2.125rem; // sub heading
+//     --fs-700: 3.68rem; // section title
+//     --fs-800: 5.94rem; // main heading
+//   }
+
+  // font weight
+
+  --fw-300: 300;
+  --fw-400: 400;
+  --fw-600: 600;
+  --fw-700: 700;
 }
