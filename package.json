@@ -1,0 +1,22 @@
+{
+  "name": "animestudio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "watch": "sass --watch scss:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DylanGangat/Animestudio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DylanGangat/Animestudio-/issues"
+  },
+  "homepage": "https://github.com/DylanGangat/Animestudio-#readme",
+  "devDependencies": {
+    "sass": "^1.34.1"
+  }
+}
