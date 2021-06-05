@@ -24,7 +24,7 @@
     </header>
     <main>
       <section class="hero">
-        <div class="container">
+        <div class="container split">
           <div class="info flow-content">
             <h1 class="main-heading">
               Watch your favourite anime from around the world.
@@ -47,13 +47,13 @@
         </div>
       </section>
 
-      <section class="top-shows">
+      <section class="top-shows center bg-dark">
         <div class="container flow-content">
           <h2 class="section-title">
             Animestudio+ is home to all the latest and greatest shows. Watch in
             sub or dub.
           </h2>
-          <div class="animes spacer">
+          <div class="anime spacer">
             <!-- anime card 1 -->
             <div class="anime-card flow-content">
               <div class="image">
@@ -108,7 +108,7 @@
             </div>
           </div>
           <!-- close of shows -->
-          <a href="#" class="btn">Check our top shows</a>
+          <a href="#" class="btn spacer">Check our top shows</a>
         </div>
         <!-- close of container -->
       </section>
@@ -146,8 +146,8 @@
           <div class="questions spacer">
             <!-- question 1 -->
             <!-- not sure whether to have question--1 on the outside or inside when event listener goes off -->
-            <div class="question question--1">
-              <div class="question--1">
+            <div class="question flow-content">
+              <div class="title question--1">
                 <h3 class="question-title">
                   How do I set parental controls on my Animestudio+ account?
                 </h3>
@@ -161,8 +161,8 @@
             </div>
 
             <!-- question 2 -->
-            <div class="question">
-              <div class="question--2">
+            <div class="question flow-content">
+              <div class="title question--2">
                 <h3 class="question-title">Why can’t I stream Animestudio+ in HD?</h3>
                 <img src="images/arrow down.svg" alt="arrow facing down" />
               </div>
@@ -173,8 +173,8 @@
             </div>
 
             <!-- question 3 -->
-            <div class="question">
-              <div class="question--3">
+            <div class="question flow-content">
+              <div class="title question--3">
                 <h3 class="question-title">
                   Can I watch Animestudio+ shows while I’m travelling?
                 </h3>
@@ -188,8 +188,8 @@
             </div>
 
             <!-- question 4 -->
-            <div class="question">
-              <div class="question--4">
+            <div class="question flow-content">
+              <div class="title question--4">
                 <h3 class="question-title">How do I change my Animestudio+ plan?</h3>
                 <img src="images/arrow down.svg" alt="arrow facing down" />
               </div>
@@ -201,8 +201,8 @@
             </div>
 
             <!-- question 5 -->
-            <div class="question">
-              <div class="question--5">
+            <div class="question flow-content">
+              <div class="title question--5">
                 <h3 class="question-title">
                   Can I watch all the anime that Animestudio+ has to offer with
                   it’s free plan?
@@ -220,129 +220,123 @@
         <!-- close of container -->
       </section>
 
-      <section class="plan">
+      <section class="plan center">
         <div class="container">
-          <table class="plan-table">
+          <h2 class="section-title">
+            Choose a plan that’s right for you. 
+          </h2>
+          <table class="plan-table spacer">
             <!-- row 1 -->
-            <tr>
-              <td>&nbsp;</td>
-              <th>Basic</th>
-              <th>Standard</th>
-              <th>Premium</th>
-            </tr>
+            <thead>
+              <tr class="packages">
+                <td>&nbsp;</td>
+                <th>Basic</th>
+                <th>Standard</th>
+                <th>Premium</th>
+              </tr>
+            </thead>
 
             <!-- row 2 -->
 
-            <tr>
-              <th>Monthly Price</th>
-              <td>Free</td>
-              <td>R164,99</td>
-              <td>R199,99</td>
-            </tr>
-
-            <!-- row 3 -->
-
-            <tr>
-              <th>Video Quality</th>
-              <td>Good</td>
-              <td>Better</td>
-              <td>Best</td>
-            </tr>
-
-            <!-- row 4 -->
-
-            <tr>
-              <th>Resolution</th>
-              <td>480p</td>
-              <td>1080p</td>
-              <td>4K+HDR</td>
-            </tr>
-
-            <!-- row 5 -->
-
-            <tr>
-              <th>Screens you can watch on at same time</th>
-              <td>1</td>
-              <td>2</td>
-              <td>4</td>
-            </tr>
-
-            <!-- row 6 -->
-
-            <tr>
-              <th>Watch on your tv, computer, mobile phone and tablet</th>
-              <td>
-                <img
-                  src="images/tick-purple.svg"
-                  alt="A tick inside a circle"
-                />
-              </td>
-              <td>
-                <img
-                  src="images/tick-purple.svg"
-                  alt="A tick inside a circle"
-                />
-              </td>
-              <td>
-                <img src="images/tick-pink.svg" alt="A tick inside a circle" />
-              </td>
-            </tr>
-
-            <!-- row 7 -->
-
-            <tr>
-              <th>Unlimited movies and TV series</th>
-              <td>&nbsp;</td>
-              <td>
-                <img
-                  src="images/tick-purple.svg"
-                  alt="A tick inside a circle"
-                />
-              </td>
-              <td>
-                <img src="images/tick-pink.svg" alt="A tick inside a circle" />
-              </td>
-            </tr>
-
-            <!-- row 8 -->
-
-            <tr>
-              <th>No Ads</th>
-              <td>&nbsp;</td>
-              <td>
-                <img
-                  src="images/tick-purple.svg"
-                  alt="A tick inside a circle"
-                />
-              </td>
-              <td>
-                <img src="images/tick-pink.svg" alt="A tick inside a circle" />
-              </td>
-            </tr>
-
-            <!-- row 9 -->
-
-            <tr>
-              <th>Cancel Anytime</th>
-              <td>
-                <img
-                  src="images/tick-purple.svg"
-                  alt="A tick inside a circle"
-                />
-              </td>
-              <td>
-                <img
-                  src="images/tick-purple.svg"
-                  alt="A tick inside a circle"
-                />
-              </td>
-              <td>
-                <img src="images/tick-pink.svg" alt="A tick inside a circle" />
-              </td>
-            </tr>
+            <tbody>
+              <tr class="benefit">
+                <th>Monthly Price</th>
+                <td>Free</td>
+                <td>R164,99</td>
+                <td class="text-accent">R199,99</td>
+              </tr>
+              <!-- row 3 -->
+              <tr class="benefit">
+                <th>Video Quality</th>
+                <td>Good</td>
+                <td>Better</td>
+                <td class="text-accent">Best</td>
+              </tr>
+    
+              <!-- row 4 -->
+              <tr class="benefit">
+                <th>Resolution</th>
+                <td>480p</td>
+                <td>1080p</td>
+                <td class="text-accent">4K+HDR</td>
+              </tr>
+              <!-- row 5 -->
+              <tr class="benefit">
+                <th>Screens you can watch on at same time</th>
+                <td>1</td>
+                <td>2</td>
+                <td class="text-accent">4</td>
+              </tr>
+              <!-- row 6 -->
+              <tr class="benefit">
+                <th>Watch on your tv, computer, mobile phone and tablet</th>
+                <td>
+                  <img
+                    src="images/tick-purple.svg"
+                    alt="A tick inside a circle"
+                  />
+                </td>
+                <td>
+                  <img
+                    src="images/tick-purple.svg"
+                    alt="A tick inside a circle"
+                  />
+                </td>
+                <td>
+                  <img src="images/tick-pink.svg" alt="A tick inside a circle" />
+                </td>
+              </tr>
+              <!-- row 7 -->
+              <tr class="benefit">
+                <th>Unlimited movies and TV series</th>
+                <td>&nbsp;</td>
+                <td>
+                  <img
+                    src="images/tick-purple.svg"
+                    alt="A tick inside a circle"
+                  />
+                </td>
+                <td>
+                  <img src="images/tick-pink.svg" alt="A tick inside a circle" />
+                </td>
+              </tr>
+              <!-- row 8 -->
+              <tr class="benefit">
+                <th>No Ads</th>
+                <td>&nbsp;</td>
+                <td>
+                  <img
+                    src="images/tick-purple.svg"
+                    alt="A tick inside a circle"
+                  />
+                </td>
+                <td>
+                  <img src="images/tick-pink.svg" alt="A tick inside a circle" />
+                </td>
+              </tr>
+              <!-- row 9 -->
+              <tr class="benefit">
+                <th>Cancel Anytime</th>
+                <td>
+                  <img
+                    src="images/tick-purple.svg"
+                    alt="A tick inside a circle"
+                  />
+                </td>
+                <td>
+                  <img
+                    src="images/tick-purple.svg"
+                    alt="A tick inside a circle"
+                  />
+                </td>
+                <td>
+                  <img src="images/tick-pink.svg" alt="A tick inside a circle" />
+                </td>
+              </tr>
+            </tbody>
           </table>
 
-          <a href="#" class="btn">Choose a plan</a>
+          <a href="#" class="btn spacer">Choose a plan</a>
         </div>
         <!-- close of container -->
       </section>

@@ -1,0 +1,18 @@
+.questions {
+    > * + * {
+        margin-top: 2rem;
+    } 
+}
+
+.question {
+    .title {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid var(--clr-accent);
+    }
+
+    .hidden {
+        display: none;
+    }
+}

@@ -1,4 +1,14 @@
 section {
+    color: var(--fg, var(--clr-primary));
+    background-color: var(--bg, var(--clr-base));
     padding-top: var(--padding, 2rem);
     padding-bottom: var(--padding, 2rem);
 }
+
+.hero {
+    .info {
+        max-width: 46ch;
+    }
+}
+
+

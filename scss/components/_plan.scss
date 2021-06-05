@@ -1,0 +1,30 @@
+.plan-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-weight: var(--fw-600);
+
+  .packages > * + * {
+    padding-left: 0.5em;
+  }
+
+  .benefit th {
+    text-align: left;
+  }
+
+  .benefit img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .benefit > th {
+    width: 50%;
+  }
+  .benefit > td {
+    width: 16.7%;
+  }
+
+  .benefit > * {
+    padding: 1rem 0;
+    border-bottom: 2px solid var(--clr-accent);
+  }
+}

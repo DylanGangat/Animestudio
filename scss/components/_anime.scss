@@ -1,0 +1,23 @@
+.anime {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 14rem));
+    justify-content: center;
+    gap: 2em;
+}
+
+.anime-card {
+    .info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .rating {
+        display: flex;
+    }
+
+    .rating > * + * {
+        margin-left: .25em;
+    }
+
+}

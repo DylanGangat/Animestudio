@@ -1,0 +1,11 @@
+.companies {
+    display: flex;
+    justify-content: space-between;
+    max-width: 25rem;
+    margin-right: auto;
+    margin-left: auto;
+
+    // > * + * {
+    //     margin-left: 2rem;
+    // }
+}

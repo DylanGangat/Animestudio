@@ -9,10 +9,42 @@
     margin-top: var(--flow-space, 1rem);
 }
 
+.split {
+    display: flex;
+    flex-direction: column;
+
+    @media(min-width: 50em) {
+        flex-direction: row;
+    }
+}
+
+.split > * {
+    flex-basis: 100%;
+}
+
+.split > * + * {
+    margin: var(--split-spacer, 2rem) 0 0 0;
+
+    @media(min-width: 50em) {
+        margin: 0 0 0 var(--split-spacer, 2rem);
+    }
+}
+
+
 .spacer {
     margin-top: var(--spacer, 2rem);
 }
 
 .center {
     text-align: center;
+}
+
+.text-accent {
+    color: var(--clr-accent);
+}
+
+.bg-dark {
+    --fg: var(--clr-base);
+    --bg: var(--clr-secondary);
+    --accent: var(--clr-accent);
 }

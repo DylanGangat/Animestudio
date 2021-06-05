@@ -1,0 +1,12 @@
+.btn {
+    display: inline-block;
+    font-size: var(--fs-300);
+    font-weight: var(--fw-700);
+    letter-spacing: 1.25px;
+    padding: 0.81em 1.56em;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    color: var(--bg, var(--clr-accent));
+    background-color: var(--accent, var(--clr-secondary));
+
+}
