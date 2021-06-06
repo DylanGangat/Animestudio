@@ -1,0 +1,24 @@
+.primary-header {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--clr-grey-400);
+    .main-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        color: var(--clr-secondary);
+    }
+
+    .nav-list {
+        display: flex;
+        align-items: center;
+        margin: 0;
+    }
+
+    .nav-list > * + * {
+        margin-left: 1em;
+    }
+
+}

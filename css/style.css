@@ -55,16 +55,14 @@ dd {
 }
 
 ul[class],
-ol[class],
-ul[role=list],
-ol[role=list] {
+ol[class] {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
-a:not([class]) {
-  text-decoration-skip-ink: auto;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 img {
@@ -224,16 +222,45 @@ h2 {
   display: none;
 }
 
+.primary-header {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--clr-grey-400);
+}
+.primary-header .main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.primary-header .logo {
+  color: var(--clr-secondary);
+}
+.primary-header .nav-list {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+.primary-header .nav-list > * + * {
+  margin-left: 1em;
+}
+
 .plan-table {
   width: 100%;
   border-collapse: collapse;
-  font-weight: var(--fw-600);
+  font-weight: var(--fw-700);
 }
-.plan-table .packages > * + * {
-  padding-left: 0.5em;
+.plan-table .packages > * {
+  padding: 0.5em;
+}
+.plan-table .packages th:last-child {
+  background-color: var(--clr-secondary);
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 .plan-table .benefit th {
   text-align: left;
+}
+.plan-table .benefit > :nth-child(2),
+.plan-table .benefit > :nth-child(3) {
+  color: var(--clr-secondary);
 }
 .plan-table .benefit img {
   margin-left: auto;
@@ -248,6 +275,59 @@ h2 {
 .plan-table .benefit > * {
   padding: 1rem 0;
   border-bottom: 2px solid var(--clr-accent);
+}
+.plan-table .benefit td:last-child {
+  background-color: var(--clr-secondary);
+}
+
+.main-footer {
+  background-image: linear-gradient(90deg, var(--clr-accent), var(--clr-secondary));
+  padding: 2rem 0;
+  color: var(--clr-base);
+}
+.main-footer .copyright {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+@media (min-width: 50em) {
+  .main-footer .copyright {
+    justify-content: center;
+  }
+}
+.main-footer .copyright > * + * {
+  margin-left: 0.5em;
+}
+
+.footer-nav h5 {
+  display: inline-block;
+  font-size: var(--fs-400);
+  padding-bottom: 0.25em;
+  border-bottom: 2px solid currentColor;
+}
+.footer-nav .list a {
+  transition: color 250ms ease-in;
+}
+.footer-nav .list a path {
+  transition: fill 250ms ease-in;
+}
+.footer-nav .list a:hover,
+.footer-nav .list a:focus {
+  color: var(--clr-accent);
+}
+.footer-nav .list a:hover path,
+.footer-nav .list a:focus path {
+  fill: var(--clr-accent);
+}
+.footer-nav .socials a {
+  display: flex;
+  align-items: center;
+}
+.footer-nav .socials span {
+  display: inline;
+}
+.footer-nav .socials a > * + * {
+  margin-left: 0.5em;
 }
 
 section {
@@ -305,6 +385,14 @@ section {
 
 .text-accent {
   color: var(--clr-accent);
+}
+
+.text-base {
+  color: var(--clr-base);
+}
+
+.bold {
+  font-weight: var(--fw-700);
 }
 
 .bg-dark {

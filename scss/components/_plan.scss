@@ -1,14 +1,25 @@
 .plan-table {
   width: 100%;
   border-collapse: collapse;
-  font-weight: var(--fw-600);
+  font-weight: var(--fw-700);
 
-  .packages > * + * {
-    padding-left: 0.5em;
+  .packages > * {
+    padding: .5em;
+  }
+
+  // Added a background to packages and and benefits last child in order to use border-radius because I found with the colgroup I couldn't use border-radius.   
+  .packages th:last-child {
+    background-color: var(--clr-secondary);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
   }
 
   .benefit th {
     text-align: left;
+  }
+
+  .benefit > :nth-child(2),
+  .benefit > :nth-child(3) {
+    color: var(--clr-secondary);
   }
 
   .benefit img {
@@ -19,12 +30,18 @@
   .benefit > th {
     width: 50%;
   }
+
   .benefit > td {
     width: 16.7%;
   }
+  // You also can't add padding to the tr so I had to all elements in benefit
 
   .benefit > * {
     padding: 1rem 0;
     border-bottom: 2px solid var(--clr-accent);
+  }
+
+  .benefit td:last-child {
+    background-color: var(--clr-secondary);
   }
 }

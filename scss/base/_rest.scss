@@ -31,18 +31,14 @@ dd {
 // Removes default style on list with classes
 
 ul[class],
-ol[class],
-ul[role="list"],
-ol[role="list"] {
+ol[class] {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
-// A elements that don't have a class get default style
-
-a:not([class]) {
-  text-decoration-skip-ink: auto;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 // Makes image easier to work with

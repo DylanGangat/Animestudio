@@ -43,6 +43,14 @@
     color: var(--clr-accent);
 }
 
+.text-base {
+    color: var(--clr-base);
+}
+
+.bold {
+    font-weight: var(--fw-700);
+}
+
 .bg-dark {
     --fg: var(--clr-base);
     --bg: var(--clr-secondary);

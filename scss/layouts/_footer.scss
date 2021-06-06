@@ -1,0 +1,62 @@
+.main-footer {
+  background-image: linear-gradient(
+    90deg,
+    var(--clr-accent),
+    var(--clr-secondary)
+  );
+  padding: 2rem 0;
+  color: var(--clr-base);
+
+  .copyright {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    @media (min-width: 50em) {
+      justify-content: center;
+    }
+  }
+
+  .copyright > * + * {
+    margin-left: 0.5em;
+  }
+}
+
+.footer-nav {
+  h5 {
+    display: inline-block;
+    font-size: var(--fs-400);
+    padding-bottom: 0.25em;
+    border-bottom: 2px solid currentColor;
+  }
+
+  .list a {
+    transition: color 250ms ease-in;
+  }
+
+  .list a path {
+      transition: fill 250ms ease-in;
+  }
+
+  .list a:hover,
+  .list a:focus {
+    color: var(--clr-accent);
+  }
+ 
+  .list a:hover path,
+  .list a:focus path  {
+    fill: var(--clr-accent);
+  }
+
+  .socials a {
+    display: flex;
+    align-items: center;
+  }
+  .socials span {
+      display: inline;
+  }
+
+  .socials a > * + * {
+    margin-left: 0.5em;
+  }
+}
