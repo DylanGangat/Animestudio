@@ -1,14 +1,22 @@
 .primary-header {
     padding: 1rem 0;
     border-bottom: 1px solid var(--clr-grey-400);
+    min-height: 4.8rem;
+
     .main-nav {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
     }
 
     .logo {
+        padding: .25em ;
         color: var(--clr-secondary);
+
+        @media(min-width: 50em) {
+            font-size: var(--fs-500);
+        }
     }
 
     .nav-list {

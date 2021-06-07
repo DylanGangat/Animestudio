@@ -1,23 +1,75 @@
 .anime {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(13rem, 14rem));
-    justify-content: center;
-    gap: 2em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 14rem));
+  justify-content: center;
+  gap: 2em;
 }
 
 .anime-card {
-    .info {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+  position: relative;
 
-    .rating {
-        display: flex;
-    }
+  .heart {
+    position: absolute;
+    z-index: 2;
+    top: 0.5em;
+    right: 0.5em;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 350ms ease-in;
+  }
 
-    .rating > * + * {
-        margin-left: .25em;
-    }
+  &:hover .heart,
+  &:focus .heart {
+    visibility: visible;
+    opacity: 1;
+  }
 
+  .heart path {
+    transition: fill 350ms ease-in;
+  }
+
+  .heart:hover path,
+  .heart:focus path {
+    fill: var(--clr-secondary);
+  }
+
+  .image {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+  }
+
+  .poster {
+    transform: scale(105%);
+    transition: transform 350ms ease-in;
+  }
+
+  &:hover .poster,
+  &:focus .poster,
+  .poster:hover,
+  .poster:focus {
+    transform: scale(100%);
+  }
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .rating {
+    display: flex;
+  }
+
+  .rating > * + * {
+    margin-left: 0.25em;
+  }
+
+  .name {
+    transition: color 350ms ease-in;
+  }
+
+  .name:hover,
+  .name:focus {
+    color: var(--clr-accent);
+  }
 }

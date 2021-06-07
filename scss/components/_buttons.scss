@@ -1,12 +1,33 @@
 .btn {
-    display: inline-block;
-    font-size: var(--fs-300);
-    font-weight: var(--fw-700);
-    letter-spacing: 1.25px;
-    padding: 0.81em 1.56em;
-    text-decoration: none;
-    border-radius: var(--border-radius);
-    color: var(--bg, var(--clr-accent));
-    background-color: var(--accent, var(--clr-secondary));
+  display: inline-block;
+  font-size: var(--fs-300);
+  font-weight: var(--fw-700);
+  letter-spacing: 0.8px;
+  padding: 0.81em 1.56em;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  color: var(--bg, var(--clr-accent));
+  background-color: var(--accent, var(--clr-secondary));
+  transition: color 350ms ease-in-out, letter-spacing 350ms ease-in-out,
+    background-color 350ms ease-in-out;
 
+  &:hover,
+  &:focus {
+    color: var(--clr-secondary);
+    background-color: var(--fg, var(--clr-accent));
+    letter-spacing: 1.25px;
+  }
+}
+
+.sign-in {
+  font-weight: var(--fw-600);
+  padding-bottom: 0.2em;
+  border-bottom: 2px solid transparent;
+  transition: color 350ms ease-in, border-bottom 350ms ease-in;
+
+  &:hover,
+  &:focus {
+    color: var(--clr-secondary);
+    border-bottom: 2px solid currentColor;
+  }
 }

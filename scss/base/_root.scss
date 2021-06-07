@@ -22,14 +22,14 @@
   --fs-700: 2.125rem; // section title
   --fs-800: 3rem; // main heading
 
-//   @media (min-width: ) {
-//     --fs-300: 0.875rem; // btn
-//     --fs-400: 1rem; // p
-//     --fs-500: 1.5rem; // subtitle  + question
-//     --fs-600: 2.125rem; // sub heading
-//     --fs-700: 3.68rem; // section title
-//     --fs-800: 5.94rem; // main heading
-//   }
+  @media (min-width: 50em) {
+    --fs-300: 0.875rem; // btn
+    --fs-400: 1rem; // p
+    --fs-500: 1.5rem; // subtitle  + question
+    --fs-600: 2.125rem; // sub heading
+    --fs-700: 3.68rem; // section title
+    --fs-800: 5rem; // main heading 5.94rem
+  }
 
   // font weight
 

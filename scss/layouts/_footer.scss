@@ -6,6 +6,16 @@
   );
   padding: 2rem 0;
   color: var(--clr-base);
+  
+  @media(min-width: 50em) {
+    padding: 4rem 0;
+  }
+
+  .logo {
+    @media(min-width: 50em) {
+      font-size: var(--fs-500);
+    }
+  }
 
   .copyright {
     display: flex;

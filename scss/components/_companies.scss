@@ -1,7 +1,18 @@
 .companies {
-    display: flex;
-    justify-content: space-between;
-    max-width: 25rem;
-    margin-right: auto;
-    margin-left: auto;
+  display: flex;
+
+  > * + * {
+    margin-left: 2em;
+  }
+
+  @media (min-width: 50em) {
+    img {
+      height: 40px;
+      width: 40px;
+    }
+
+    & > * + * {
+      margin-left: 3em;
+    }
+  }
 }
