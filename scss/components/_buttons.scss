@@ -31,3 +31,88 @@
     border-bottom: 2px solid currentColor;
   }
 }
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+
+  & > * {
+    margin: .5em .5em 0 0;
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: var(--fs-300);
+    font-weight: var(--fw-600);
+    text-transform: uppercase;
+    color: var(--fg, var(--clr-grey-600));
+    background-color: var(--bg, var(--clr-grey-400));
+    padding: 0.375em 0.625em;
+    border-radius: var(--border-radius);
+    transition: color 350ms ease-in, 
+                background-color 350ms ease-in;
+  }
+
+  .tag:hover,
+  .tag:focus {
+    color: var(--clr-secondary);
+    background-color:var(--clr-base);
+
+  }
+}
+
+.cta {
+  > * {
+    margin: .5em .5em .5em 0;
+  }
+}
+
+.btn-secondary {
+  display: inline-flex;
+  font-size: var(--fs-300);
+  font-weight: var(--fw-700);
+  letter-spacing: 0.8px;
+  padding: 0.81em 1.56em;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  transition: color 350ms ease-in, letter-spacing 350ms ease-in,
+  background-color 350ms ease-in,  border 350ms ease-in;
+
+  & > :first-child {
+    margin-right: .5em;
+  }
+}
+
+.btn-secondary--play {
+  color: var(--bg, var(--clr-secondary));
+  background-color: var(--accent, var(--clr-accent));
+  border: 1px solid var(--clr-accent);
+
+  &:hover,
+  &:focus {
+    color: var(--clr-accent);
+    background-color: var(--fg, var(--clr-secondary));
+    border-color: var(--clr-secondary);
+    letter-spacing: 1.25px;
+  }
+
+  path {
+    transition: fill 350ms ease-in;
+  }
+
+  &:hover path,
+  &:focus path {
+    fill: var(--clr-accent);
+  }
+}
+
+.btn-secondary--list {
+  background-color: var(--accent, var(--clr-base));
+  border: 1px solid currentColor;
+
+  &:hover,
+  &:focus {
+    background-color: var(--fg, var(--clr-accent));
+    letter-spacing: 1.25px;
+  }
+}

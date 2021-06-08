@@ -104,8 +104,8 @@ body {
   --clr-secondary: hsl(256, 78%, 53%);
   --clr-accent: hsl(0, 100%, 93%);
   --clr-base: hsl(0, 0%, 100%);
-  --clr-grey-400: hsl(0, 0%, 67%);
-  --clr-grey-600: hsl(162, 4%, 53%);
+  --clr-grey-400: hsl(249, 19%, 93%);
+  --clr-grey-600: hsl(213, 4%, 40%);
   --ff-primary: "Open Sans", sans-serif;
   --fs-300: 0.875rem;
   --fs-400: 1rem;
@@ -148,16 +148,21 @@ h1 {
   letter-spacing: -1.5px;
 }
 
-h2 {
+h2,
+.h2 {
   font-size: var(--fs-700);
   letter-spacing: -0.5px;
   max-width: 26ch;
+}
+
+.section-title {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
 }
 
-.sub-heading {
+.sub-heading,
+.h3 {
   font-size: var(--fs-600);
   line-height: 1.1;
 }
@@ -186,6 +191,23 @@ h2 {
   grid-template-columns: repeat(auto-fit, minmax(13rem, 14rem));
   justify-content: center;
   gap: 2em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 2em;
+  --spacer: 2rem;
+}
+@media (min-width: 31.25em) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  }
+}
+@media (min-width: 50em) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  }
 }
 
 .anime-card {
@@ -270,6 +292,75 @@ h2 {
 .sign-in:hover, .sign-in:focus {
   color: var(--clr-secondary);
   border-bottom: 2px solid currentColor;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+.tags > * {
+  margin: 0.5em 0.5em 0 0;
+}
+.tags .tag {
+  display: inline-block;
+  font-size: var(--fs-300);
+  font-weight: var(--fw-600);
+  text-transform: uppercase;
+  color: var(--fg, var(--clr-grey-600));
+  background-color: var(--bg, var(--clr-grey-400));
+  padding: 0.375em 0.625em;
+  border-radius: var(--border-radius);
+  transition: color 350ms ease-in, background-color 350ms ease-in;
+}
+.tags .tag:hover,
+.tags .tag:focus {
+  color: var(--clr-secondary);
+  background-color: var(--clr-base);
+}
+
+.cta > * {
+  margin: 0.5em 0.5em 0.5em 0;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  font-size: var(--fs-300);
+  font-weight: var(--fw-700);
+  letter-spacing: 0.8px;
+  padding: 0.81em 1.56em;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  transition: color 350ms ease-in, letter-spacing 350ms ease-in, background-color 350ms ease-in, border 350ms ease-in;
+}
+.btn-secondary > :first-child {
+  margin-right: 0.5em;
+}
+
+.btn-secondary--play {
+  color: var(--bg, var(--clr-secondary));
+  background-color: var(--accent, var(--clr-accent));
+  border: 1px solid var(--clr-accent);
+}
+.btn-secondary--play:hover, .btn-secondary--play:focus {
+  color: var(--clr-accent);
+  background-color: var(--fg, var(--clr-secondary));
+  border-color: var(--clr-secondary);
+  letter-spacing: 1.25px;
+}
+.btn-secondary--play path {
+  transition: fill 350ms ease-in;
+}
+.btn-secondary--play:hover path, .btn-secondary--play:focus path {
+  fill: var(--clr-accent);
+}
+
+.btn-secondary--list {
+  background-color: var(--accent, var(--clr-base));
+  border: 1px solid currentColor;
+}
+.btn-secondary--list:hover, .btn-secondary--list:focus {
+  background-color: var(--fg, var(--clr-accent));
+  letter-spacing: 1.25px;
 }
 
 .companies {
@@ -493,6 +584,22 @@ section {
   .devices header {
     --flow-space: 2rem;
   }
+}
+
+.anime-info {
+  --spacer: 2rem;
+}
+.anime-info .split {
+  align-items: center;
+}
+.anime-info .info {
+  flex-basis: 60%;
+}
+.anime-info .image {
+  flex-basis: 40%;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  margin-right: auto;
 }
 
 .container {

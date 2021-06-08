@@ -61,3 +61,24 @@ section {
     }
   }
 }
+
+
+// info-page
+
+.anime-info {
+  --spacer: 2rem;
+  .split {
+    align-items: center;
+  }
+
+  .info {
+    flex-basis: 60%;
+  }
+
+  .image {
+    flex-basis: 40%;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    margin-right: auto;  
+  }
+}

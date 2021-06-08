@@ -5,6 +5,21 @@
   gap: 2em;
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 2em;
+  --spacer: 2rem;
+
+  @media(min-width: 31.25em) {
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  }
+
+  @media(min-width: 50em) {
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  }
+}
+
 .anime-card {
   position: relative;
 

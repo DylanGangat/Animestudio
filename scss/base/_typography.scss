@@ -15,24 +15,28 @@ h1 {
     letter-spacing: -1.5px;
 }
 
-h2 {
+h2,
+.h2 {
     font-size: var(--fs-700);
     letter-spacing: -0.5px;
-    max-width: 26ch;
+    max-width: 26ch;   
+}
+
+.section-title {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
 }
 
-.sub-heading {
+.sub-heading,
+.h3 {
     font-size: var(--fs-600);
     line-height: 1.1;
 }
 
 .question-title,
 .subtitle {
-    font-size: var(--fs-500);
-    
+    font-size: var(--fs-500);    
 }
 
 .subtitle {
