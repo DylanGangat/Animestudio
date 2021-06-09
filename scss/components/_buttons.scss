@@ -1,3 +1,5 @@
+// primary buttons
+
 .btn {
   display: inline-block;
   font-size: var(--fs-300);
@@ -32,6 +34,8 @@
   }
 }
 
+// tags
+
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -61,6 +65,8 @@
   }
 }
 
+// secondary buttons
+
 .cta {
   > * {
     margin: .5em .5em .5em 0;
@@ -84,15 +90,15 @@
 }
 
 .btn-secondary--play {
-  color: var(--bg, var(--clr-secondary));
-  background-color: var(--accent, var(--clr-accent));
-  border: 1px solid var(--clr-accent);
+  color: var(--clr-secondary);
+  background-color: var(--clr-accent);
+  border: px solid var(--clr-accent);
 
   &:hover,
   &:focus {
-    color: var(--clr-accent);
+    color: var(--bg, var(--clr-accent));
     background-color: var(--fg, var(--clr-secondary));
-    border-color: var(--clr-secondary);
+    border-color: var(--fg, var(--clr-secondary));
     letter-spacing: 1.25px;
   }
 
@@ -107,12 +113,13 @@
 }
 
 .btn-secondary--list {
-  background-color: var(--accent, var(--clr-base));
+  color: var(--clr-primary);
+  background-color: var(--clr-base);
   border: 1px solid currentColor;
 
   &:hover,
   &:focus {
-    background-color: var(--fg, var(--clr-accent));
+    background-color: var(--clr-accent);
     letter-spacing: 1.25px;
   }
 }

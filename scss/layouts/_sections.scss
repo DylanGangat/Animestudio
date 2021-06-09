@@ -82,3 +82,19 @@ section {
     margin-right: auto;  
   }
 }
+
+// shows page
+
+.shows-hero {
+  --spacer: 2rem;
+  height: calc(100vh - var(--secondary-header-height));
+  background-color: var(--clr-secondary);
+
+  .container {
+    display: flex;
+    height: 75vh;
+  }
+  .info {
+    margin-top: auto;
+  }
+}
