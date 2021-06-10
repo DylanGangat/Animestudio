@@ -39,6 +39,21 @@
 .secondary-header {
   position: relative;
   border-bottom: 1px solid var(--clr-grey-400);
+  z-index: 999;
+
+  // added this because i need the dropdown menu to translate y so it can be below the header but because the  header is the new stacking context nothing can be under it because of the z-index so i had to make a background color psuedo element for the dropdown to go under that but still above the header.
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--clr-base);
+    z-index: -1; // needs to be below secondary header but above dropdown menu (nav)
+  }
 
   .secondary-nav {
     display: flex;
@@ -47,14 +62,56 @@
     padding: 1rem 0;
   }
 
+  // side nav
+
   .side-nav {
     display: flex;
     align-items: center;
   }
 
   .side-nav > * + * {
-    margin-left: .5em;
+    margin-left: 1em;
   }
+
+  // search
+  .search {
+    display: flex;
+  }
+  .search label {
+    cursor: pointer;
+  }
+
+  .search input {
+    position: absolute;
+    top: calc(100% + 2rem);
+    left: 0;
+    right: 0;
+    padding: 0.5em 1em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    max-width: 20rem;
+    border-radius: var(--border-radius);
+    border: 2px solid var(--clr-secondary);
+    color: var(--clr-secondary);
+    font-weight: var(--fw-600);
+  }
+
+  .search ::placeholder {
+    color: var(--clr-grey-600);
+    font-weight: var(--fw-400);
+  }
+
+  .search.hidden {
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+  }
+
+  // shows  when nothing is typed in placeholder
+  // .search input:placeholder-shown {
+  //   border: 2px solid var(--clr-base);
+  // }
 
   .nav-toggle {
     border: none;
@@ -64,6 +121,9 @@
 
   .nav {
     position: absolute;
+    max-width: 74.75rem;
+    margin-right: auto;
+    margin-left: auto;
     top: calc(100% + 1px);
     left: 0;
     right: 0;
@@ -71,7 +131,17 @@
     font-weight: var(--fw-700);
     color: var(--clr-secondary);
     background-color: var(--clr-accent);
-    z-index: 2;
+    z-index: -2; // needs to be above overlay but below secondary header psuedo background
+
+    // animation
+    transform: translateY(0%);
+    transition: transform var(--animation-450);
+  }
+
+  // animation for nav
+
+  .nav.hidden {
+    transform: translateY(-100%);
   }
 
   .nav-list {
@@ -89,12 +159,11 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem 1rem; //added this so the anchor could have more padding to click on and aslo because it is positon absolute due to the secondary nav but i also had to put the padding on the dropdown menu so it is spaced the same.
-    transition: color 350ms ease-in;
+    transition: color var(--animation-350);
   }
 
-
   .nav-item path {
-    transition: fill 350ms ease-in;
+    transition: fill var(--animation-350);
   }
 
   .nav-item span:hover path,
@@ -102,26 +171,24 @@
     fill: var(--clr-primary);
   }
 
-
   .nav-item a:hover,
   .nav-item a:focus {
     color: var(--clr-primary);
   }
 
-
   // dropdown menu
 
   .dropdown-menu {
-    // had to add padding so it could align with the nav-item because everything is position: absolute to the secondary header. 
+    // had to add padding so it could align with the nav-item because everything is position: absolute to the secondary header.
     padding: 1rem 0 1rem 2rem;
     border-top: 1px solid var(--clr-secondary);
     background-color: var(--clr-base);
   }
 
-  .dropdown a  {
+  .dropdown a {
     display: inline-block;
-    padding: .25rem 0;
-    transition: color 350ms ease-in;
+    padding: 0.25rem 0;
+    transition: color var(--animation-350);
   }
 
   .dropdown a:hover,
@@ -139,10 +206,15 @@
     background-color: var(--clr-secondary);
     height: 100vh;
     width: 100vw;
-    opacity: .6;
-    z-index: 1;
+    opacity: 0.7;
+    z-index: -3; // needs to be below dropdown menu
+
+    // animation
+    transform: translateY(0%);
+    transition: transform var(--animation-450);
+  }
+
+  .overlay.hidden {
+    transform: translateY(-100%);
   }
 }
-  
- 
-

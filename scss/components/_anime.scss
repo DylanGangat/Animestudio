@@ -30,7 +30,7 @@
     right: 0.5em;
     visibility: hidden;
     opacity: 0;
-    transition: opacity 350ms ease-in;
+    transition: opacity var(--animation-350);
   }
 
   &:hover .heart,
@@ -40,7 +40,7 @@
   }
 
   .heart path {
-    transition: fill 350ms ease-in;
+    transition: fill var(--animation-350);
   }
 
   .heart:hover path,
@@ -55,7 +55,7 @@
 
   .poster {
     transform: scale(105%);
-    transition: transform 350ms ease-in;
+    transition: transform var(--animation-350);
   }
 
   &:hover .poster,
@@ -80,7 +80,7 @@
   }
 
   .name {
-    transition: color 350ms ease-in;
+    transition: color var(--animation-350);
   }
 
   .name:hover,

@@ -3,6 +3,8 @@
 
   --clr-primary: #2c3842;
   --clr-secondary: hsl(256, 78%, 53%);
+  --clr-secondary: rgba(92, 42, 229, 0.5);
+  --clr-secondary: rgb(92, 42, 229);
   --clr-accent: hsl(0, 100%, 93%);
   --clr-base: hsl(0, 0%, 100%);
 
@@ -42,7 +44,17 @@
 
   --border-radius: 9px;
 
+  // linear-gradient
+
+  --linear-gradient: linear-gradient(rgba(92, 42, 229, 0.4), rgb(92, 42, 229));
+
   // headers min height
   --header-height: 4.8rem;
   --secondary-header-height: 3.75rem;
+
+  // animation
+
+  --animation-450: 450ms ease-in;
+
+  --animation-350: 350ms ease-in;
 }

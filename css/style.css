@@ -102,6 +102,8 @@ body {
 :root {
   --clr-primary: #2c3842;
   --clr-secondary: hsl(256, 78%, 53%);
+  --clr-secondary: rgba(92, 42, 229, 0.5);
+  --clr-secondary: rgb(92, 42, 229);
   --clr-accent: hsl(0, 100%, 93%);
   --clr-base: hsl(0, 0%, 100%);
   --clr-grey-400: hsl(249, 19%, 93%);
@@ -118,8 +120,11 @@ body {
   --fw-600: 600;
   --fw-700: 700;
   --border-radius: 9px;
+  --linear-gradient: linear-gradient(rgba(92, 42, 229, 0.4), rgb(92, 42, 229));
   --header-height: 4.8rem;
   --secondary-header-height: 3.75rem;
+  --animation-450: 450ms ease-in;
+  --animation-350: 350ms ease-in;
 }
 @media (min-width: 50em) {
   :root {
@@ -221,14 +226,14 @@ h2,
   right: 0.5em;
   visibility: hidden;
   opacity: 0;
-  transition: opacity 350ms ease-in;
+  transition: opacity var(--animation-350);
 }
 .anime-card:hover .heart, .anime-card:focus .heart {
   visibility: visible;
   opacity: 1;
 }
 .anime-card .heart path {
-  transition: fill 350ms ease-in;
+  transition: fill var(--animation-350);
 }
 .anime-card .heart:hover path,
 .anime-card .heart:focus path {
@@ -240,7 +245,7 @@ h2,
 }
 .anime-card .poster {
   transform: scale(105%);
-  transition: transform 350ms ease-in;
+  transition: transform var(--animation-350);
 }
 .anime-card:hover .poster, .anime-card:focus .poster,
 .anime-card .poster:hover,
@@ -259,7 +264,7 @@ h2,
   margin-left: 0.25em;
 }
 .anime-card .name {
-  transition: color 350ms ease-in;
+  transition: color var(--animation-350);
 }
 .anime-card .name:hover,
 .anime-card .name:focus {
@@ -276,7 +281,7 @@ h2,
   border-radius: var(--border-radius);
   color: var(--bg, var(--clr-accent));
   background-color: var(--accent, var(--clr-secondary));
-  transition: color 350ms ease-in-out, letter-spacing 350ms ease-in-out, background-color 350ms ease-in-out;
+  transition: color var(--animation-350), letter-spacing var(--animation-350), background-color var(--animation-350);
 }
 .btn:hover, .btn:focus {
   color: var(--clr-secondary);
@@ -288,7 +293,7 @@ h2,
   font-weight: var(--fw-600);
   padding-bottom: 0.2em;
   border-bottom: 2px solid transparent;
-  transition: color 350ms ease-in, border-bottom 350ms ease-in;
+  transition: color 350ms ease-in, border-bottom var(--animation-350);
 }
 .sign-in:hover, .sign-in:focus {
   color: var(--clr-secondary);
@@ -311,7 +316,7 @@ h2,
   background-color: var(--bg, var(--clr-grey-400));
   padding: 0.375em 0.625em;
   border-radius: var(--border-radius);
-  transition: color 350ms ease-in, background-color 350ms ease-in;
+  transition: color var(--animation-350), background-color var(--animation-350);
 }
 .tags .tag:hover,
 .tags .tag:focus {
@@ -331,7 +336,7 @@ h2,
   padding: 0.81em 1.56em;
   text-decoration: none;
   border-radius: var(--border-radius);
-  transition: color 350ms ease-in, letter-spacing 350ms ease-in, background-color 350ms ease-in, border 350ms ease-in;
+  transition: color var(--animation-350), letter-spacing var(--animation-350), background-color var(--animation-350), border var(--animation-350);
 }
 .btn-secondary > :first-child {
   margin-right: 0.5em;
@@ -340,7 +345,7 @@ h2,
 .btn-secondary--play {
   color: var(--clr-secondary);
   background-color: var(--clr-accent);
-  border: px solid var(--clr-accent);
+  border: 1px solid var(--clr-accent);
 }
 .btn-secondary--play:hover, .btn-secondary--play:focus {
   color: var(--bg, var(--clr-accent));
@@ -349,7 +354,7 @@ h2,
   letter-spacing: 1.25px;
 }
 .btn-secondary--play path {
-  transition: fill 350ms ease-in;
+  transition: fill var(--animation-350);
 }
 .btn-secondary--play:hover path, .btn-secondary--play:focus path {
   fill: var(--clr-accent);
@@ -437,6 +442,19 @@ h2,
 .secondary-header {
   position: relative;
   border-bottom: 1px solid var(--clr-grey-400);
+  z-index: 999;
+}
+.secondary-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--clr-base);
+  z-index: -1;
 }
 .secondary-header .secondary-nav {
   display: flex;
@@ -449,7 +467,37 @@ h2,
   align-items: center;
 }
 .secondary-header .side-nav > * + * {
-  margin-left: 0.5em;
+  margin-left: 1em;
+}
+.secondary-header .search {
+  display: flex;
+}
+.secondary-header .search label {
+  cursor: pointer;
+}
+.secondary-header .search input {
+  position: absolute;
+  top: calc(100% + 2rem);
+  left: 0;
+  right: 0;
+  padding: 0.5em 1em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  max-width: 20rem;
+  border-radius: var(--border-radius);
+  border: 2px solid var(--clr-secondary);
+  color: var(--clr-secondary);
+  font-weight: var(--fw-600);
+}
+.secondary-header .search ::placeholder {
+  color: var(--clr-grey-600);
+  font-weight: var(--fw-400);
+}
+.secondary-header .search.hidden {
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
 }
 .secondary-header .nav-toggle {
   border: none;
@@ -458,6 +506,9 @@ h2,
 }
 .secondary-header .nav {
   position: absolute;
+  max-width: 74.75rem;
+  margin-right: auto;
+  margin-left: auto;
   top: calc(100% + 1px);
   left: 0;
   right: 0;
@@ -465,7 +516,12 @@ h2,
   font-weight: var(--fw-700);
   color: var(--clr-secondary);
   background-color: var(--clr-accent);
-  z-index: 2;
+  z-index: -2;
+  transform: translateY(0%);
+  transition: transform var(--animation-450);
+}
+.secondary-header .nav.hidden {
+  transform: translateY(-100%);
 }
 .secondary-header .nav-list {
   margin: 0;
@@ -478,10 +534,10 @@ h2,
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem 1rem;
-  transition: color 350ms ease-in;
+  transition: color var(--animation-350);
 }
 .secondary-header .nav-item path {
-  transition: fill 350ms ease-in;
+  transition: fill var(--animation-350);
 }
 .secondary-header .nav-item span:hover path,
 .secondary-header .nav-item span:focus path {
@@ -499,7 +555,7 @@ h2,
 .secondary-header .dropdown a {
   display: inline-block;
   padding: 0.25rem 0;
-  transition: color 350ms ease-in;
+  transition: color var(--animation-350);
 }
 .secondary-header .dropdown a:hover,
 .secondary-header .dropdown a:focus {
@@ -514,8 +570,13 @@ h2,
   background-color: var(--clr-secondary);
   height: 100vh;
   width: 100vw;
-  opacity: 0.6;
-  z-index: 1;
+  opacity: 0.7;
+  z-index: -3;
+  transform: translateY(0%);
+  transition: transform var(--animation-450);
+}
+.secondary-header .overlay.hidden {
+  transform: translateY(-100%);
 }
 
 .plan-table {
@@ -591,10 +652,10 @@ h2,
   border-bottom: 2px solid currentColor;
 }
 .footer-nav .list a {
-  transition: color 250ms ease-in;
+  transition: color var(--animation-350);
 }
 .footer-nav .list a path {
-  transition: fill 250ms ease-in;
+  transition: fill var(--animation-350);
 }
 .footer-nav .list a:hover,
 .footer-nav .list a:focus {
@@ -691,9 +752,24 @@ section {
 .shows-hero {
   --spacer: 2rem;
   height: calc(100vh - var(--secondary-header-height));
-  background-color: var(--clr-secondary);
+  position: relative;
+  z-index: 1;
+  background-image: url("/images/demon-slayer-movie.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top left;
 }
-.shows-hero .container {
+.shows-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: var(--linear-gradient);
+  z-index: -1;
+}
+.shows-hero .positioned {
   display: flex;
   height: 75vh;
 }

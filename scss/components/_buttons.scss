@@ -10,8 +10,8 @@
   border-radius: var(--border-radius);
   color: var(--bg, var(--clr-accent));
   background-color: var(--accent, var(--clr-secondary));
-  transition: color 350ms ease-in-out, letter-spacing 350ms ease-in-out,
-    background-color 350ms ease-in-out;
+  transition: color var(--animation-350), letter-spacing var(--animation-350),
+    background-color var(--animation-350);
 
   &:hover,
   &:focus {
@@ -25,7 +25,7 @@
   font-weight: var(--fw-600);
   padding-bottom: 0.2em;
   border-bottom: 2px solid transparent;
-  transition: color 350ms ease-in, border-bottom 350ms ease-in;
+  transition: color 350ms ease-in, border-bottom var(--animation-350);
 
   &:hover,
   &:focus {
@@ -53,8 +53,8 @@
     background-color: var(--bg, var(--clr-grey-400));
     padding: 0.375em 0.625em;
     border-radius: var(--border-radius);
-    transition: color 350ms ease-in, 
-                background-color 350ms ease-in;
+    transition: color var(--animation-350), 
+                background-color var(--animation-350);
   }
 
   .tag:hover,
@@ -81,8 +81,8 @@
   padding: 0.81em 1.56em;
   text-decoration: none;
   border-radius: var(--border-radius);
-  transition: color 350ms ease-in, letter-spacing 350ms ease-in,
-  background-color 350ms ease-in,  border 350ms ease-in;
+  transition: color var(--animation-350), letter-spacing var(--animation-350),
+  background-color var(--animation-350),  border var(--animation-350);
 
   & > :first-child {
     margin-right: .5em;
@@ -92,7 +92,7 @@
 .btn-secondary--play {
   color: var(--clr-secondary);
   background-color: var(--clr-accent);
-  border: px solid var(--clr-accent);
+  border: 1px solid var(--clr-accent);
 
   &:hover,
   &:focus {
@@ -103,7 +103,7 @@
   }
 
   path {
-    transition: fill 350ms ease-in;
+    transition: fill var(--animation-350);
   }
 
   &:hover path,

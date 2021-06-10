@@ -41,11 +41,11 @@
   }
 
   .list a {
-    transition: color 250ms ease-in;
+    transition: color var(--animation-350);
   }
 
   .list a path {
-      transition: fill 250ms ease-in;
+      transition: fill var(--animation-350);
   }
 
   .list a:hover,
