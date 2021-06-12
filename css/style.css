@@ -477,27 +477,31 @@ h2,
 }
 .secondary-header .search input {
   position: absolute;
+  z-index: -2;
   top: calc(100% + 2rem);
   left: 0;
   right: 0;
   padding: 0.5em 1em;
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
   max-width: 20rem;
   border-radius: var(--border-radius);
   border: 2px solid var(--clr-secondary);
   color: var(--clr-secondary);
   font-weight: var(--fw-600);
+  width: 80%;
+  transform: translateY(0%);
+  transition: all var(--animation-350);
 }
 .secondary-header .search ::placeholder {
   color: var(--clr-grey-600);
   font-weight: var(--fw-400);
 }
-.secondary-header .search.hidden {
+.secondary-header .search .hidden {
   width: 0;
   opacity: 0;
   overflow: hidden;
+  transform: translateY(-200%);
 }
 .secondary-header .nav-toggle {
   border: none;
@@ -509,7 +513,7 @@ h2,
   max-width: 74.75rem;
   margin-right: auto;
   margin-left: auto;
-  top: calc(100% + 1px);
+  top: 100%;
   left: 0;
   right: 0;
   width: 100%;
@@ -518,7 +522,7 @@ h2,
   background-color: var(--clr-accent);
   z-index: -2;
   transform: translateY(0%);
-  transition: transform var(--animation-450);
+  transition: transform var(--animation-450) 450ms;
 }
 .secondary-header .nav.hidden {
   transform: translateY(-100%);
@@ -528,6 +532,20 @@ h2,
 }
 .secondary-header .nav-item {
   border-bottom: 1px solid currentColor;
+}
+.secondary-header .nav-item .dropdown-heading {
+  position: relative;
+  z-index: 0;
+}
+.secondary-header .nav-item .dropdown-heading::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: var(--clr-accent);
+  z-index: -1;
 }
 .secondary-header .nav-item a {
   display: flex;
@@ -543,14 +561,23 @@ h2,
 .secondary-header .nav-item span:focus path {
   fill: var(--clr-primary);
 }
+.secondary-header .nav-item span {
+  transition: transform var(--animation-450);
+}
+.secondary-header .nav-item span.rotate {
+  transform: rotate(180deg);
+}
 .secondary-header .nav-item a:hover,
 .secondary-header .nav-item a:focus {
   color: var(--clr-primary);
 }
 .secondary-header .dropdown-menu {
+  position: relative;
+  z-index: -2;
   padding: 1rem 0 1rem 2rem;
   border-top: 1px solid var(--clr-secondary);
   background-color: var(--clr-base);
+  transition: max-height var(--animation-450), opacity var(--animation-450), padding-top var(--animation-450), padding-bottom var(--animation-450), overflow var(--animation-450), transform var(--animation-450);
 }
 .secondary-header .dropdown a {
   display: inline-block;
@@ -561,12 +588,21 @@ h2,
 .secondary-header .dropdown a:focus {
   color: var(--clr-accent);
 }
+.secondary-header .dropdown-menu.hidden {
+  padding-bottom: 0;
+  padding-top: 0;
+  transform: translateY(-50%);
+  overflow: hidden;
+  opacity: 0;
+  max-height: 0;
+}
 .secondary-header .overlay {
   position: absolute;
   top: 100%;
   bottom: 0;
   right: 0;
   left: 0;
+  cursor: pointer;
   background-color: var(--clr-secondary);
   height: 100vh;
   width: 100vw;
@@ -840,10 +876,6 @@ section {
   --fg: var(--clr-base);
   --bg: var(--clr-secondary);
   --accent: var(--clr-accent);
-}
-
-.hidden {
-  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */
