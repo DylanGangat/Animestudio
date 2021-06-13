@@ -7,19 +7,26 @@ const navItems = document.querySelectorAll('.nav-item');
 const dropdownMenu = document.querySelector('.dropdown-menu');
 const search = document.querySelector('.search input');
 
-navToggle.addEventListener('click', () => {
-    overlay.classList.toggle('hidden');
-    nav.classList.toggle('hidden');
-});
 
+// hamburger menu toggle
+
+navToggle.addEventListener('click', () => {
+    if(search.className != 'hidden') {
+        overlay.classList.add('hidden');
+        search.classList.add('hidden');
+    }
+    overlay.classList.toggle('hidden');
+    nav.classList.toggle('hidden');  
+});
 
 
 overlay.addEventListener('click', e => {
-    // console.log('overlay');
     overlay.classList.add('hidden');
     nav.classList.add('hidden');
+    search.classList.add('hidden');
 });
 
+// nav menu list items
 
 openAccordian.forEach(item => {
     item.addEventListener('click', e => {
@@ -31,19 +38,18 @@ openAccordian.forEach(item => {
     });
 });
 
+// search button in nav 
+
 search.addEventListener('click', e => {
-    // if(nav.classList !== 'hidden') {
-    //     overlay.classList.add('hidden');
-    //     nav.classList.add('hidden');
-    //     console.log('hello');
-
-         
-    // } 
-
+    if(nav.className != 'nav hidden') {
+        overlay.classList.add('hidden');
+        nav.classList.add('hidden');     
+    } 
     e.preventDefault();
-        console.log(e.target);
-        e.target.classList.toggle('hidden');
-        overlay.classList.toggle('hidden'); 
-    
-    
+    console.log(e.target);
+    // e.target.classList.toggle('hidden');
+    search.classList.toggle('hidden');
+    overlay.classList.toggle('hidden');
 });
+
+
