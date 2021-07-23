@@ -7,7 +7,6 @@ const navItems = document.querySelectorAll('.nav-item');
 const dropdownMenu = document.querySelector('.dropdown-menu');
 const search = document.querySelector('.search input');
 
-
 // hamburger menu toggle
 
 navToggle.addEventListener('click', () => {

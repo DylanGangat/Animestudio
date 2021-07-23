@@ -422,6 +422,9 @@ h2,
   padding: 1rem 0;
   border-bottom: 1px solid var(--clr-grey-400);
   min-height: var(--header-height);
+  background-color: var(--clr-base);
+  width: 100%;
+  z-index: 999;
 }
 .primary-header .main-nav {
   display: flex;
@@ -456,6 +459,10 @@ h2,
 
 .secondary-header {
   position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   border-bottom: 1px solid var(--clr-grey-400);
   z-index: 999;
 }
@@ -875,6 +882,14 @@ section {
   --fg: var(--clr-base);
   --bg: var(--clr-secondary);
   --accent: var(--clr-accent);
+}
+
+.fixed {
+  position: fixed;
+}
+
+.margin-top-nav {
+  margin-top: var(--secondary-header-height);
 }
 
 /*# sourceMappingURL=style.css.map */

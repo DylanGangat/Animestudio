@@ -60,3 +60,11 @@
     --accent: var(--clr-accent);
 }
 
+.fixed {
+    position: fixed;
+}
+
+.margin-top-nav {
+    margin-top: var(--secondary-header-height);
+} 
+

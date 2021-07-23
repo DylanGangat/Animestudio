@@ -19,12 +19,18 @@
         >
 
         <div class="side-nav">
-          <div class="search">
+          <form class="search">
             <label for="search"
               ><img src="images/Search.svg" alt="magnifying glass"
             /></label>
-            <!-- <input type="search" name="search" id="search" /> -->
-          </div>
+            <input
+              class="hidden"
+              type="search"
+              name="search"
+              id="search"
+              placeholder="Search..."
+            />
+          </form>
           <div class="profile">
             <img src="images/profile-pic.jpg" alt="" />
           </div>
@@ -37,10 +43,23 @@
 
         <div class="nav hidden">
           <ul class="nav-list">
-            <li class="nav-item">
-              <a href="#">Shows<span><svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M8.69461 9.2928L15.7126 1.8176C16.0958 1.3824 16.0958 0.7168 15.7126 0.3072C15.3293 -0.1024 14.6826 -0.1024 14.2994 0.3072L8 7.04L1.7006 0.3072C1.29341 -0.1024 0.670659 -0.1024 0.287425 0.3072C-0.0958084 0.7168 -0.0958084 1.3824 0.287425 1.8176L7.28144 9.2928C7.68862 9.7024 8.31138 9.7024 8.69461 9.2928Z" fill="#5928E5"/>
-                </svg></span></a>
+            <li class="nav-item open-accordian">
+              <a class="dropdown-heading" href="#"
+                >Shows<span
+                  ><svg
+                    width="16"
+                    height="10"
+                    viewBox="0 0 16 10"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M8.69461 9.2928L15.7126 1.8176C16.0958 1.3824 16.0958 0.7168 15.7126 0.3072C15.3293 -0.1024 14.6826 -0.1024 14.2994 0.3072L8 7.04L1.7006 0.3072C1.29341 -0.1024 0.670659 -0.1024 0.287425 0.3072C-0.0958084 0.7168 -0.0958084 1.3824 0.287425 1.8176L7.28144 9.2928C7.68862 9.7024 8.31138 9.7024 8.69461 9.2928Z"
+                      fill="#5928E5"
+                    /></svg></span
+              ></a>
               <div class="dropdown-menu hidden">
                 <ul class="dropdown">
                   <li><a href="#">Popular Shows</a></li>
@@ -50,28 +69,42 @@
                 </ul>
               </div>
             </li>
-            <li class="nav-item"><a href="#">Movies</a></li>
-            <li class="nav-item">
-              <a href="#">Genres<span><svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M8.69461 9.2928L15.7126 1.8176C16.0958 1.3824 16.0958 0.7168 15.7126 0.3072C15.3293 -0.1024 14.6826 -0.1024 14.2994 0.3072L8 7.04L1.7006 0.3072C1.29341 -0.1024 0.670659 -0.1024 0.287425 0.3072C-0.0958084 0.7168 -0.0958084 1.3824 0.287425 1.8176L7.28144 9.2928C7.68862 9.7024 8.31138 9.7024 8.69461 9.2928Z" fill="#5928E5"/>
-                </svg></span></a>
+            <li class="nav-item"><a class="dropdown-heading" href="#">Movies</a></li>
+            <li class="nav-item open-accordian">
+              <a class="dropdown-heading" href="#"
+                >Genres<span
+                  ><svg
+                    width="16"
+                    height="10"
+                    viewBox="0 0 16 10"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M8.69461 9.2928L15.7126 1.8176C16.0958 1.3824 16.0958 0.7168 15.7126 0.3072C15.3293 -0.1024 14.6826 -0.1024 14.2994 0.3072L8 7.04L1.7006 0.3072C1.29341 -0.1024 0.670659 -0.1024 0.287425 0.3072C-0.0958084 0.7168 -0.0958084 1.3824 0.287425 1.8176L7.28144 9.2928C7.68862 9.7024 8.31138 9.7024 8.69461 9.2928Z"
+                      fill="#5928E5"
+                    /></svg></span
+              ></a>
               <div class="dropdown-menu hidden">
                 <ul class="dropdown">
                   <li><a href="#">Slice of life</a></li>
                   <li><a href="#">Shonen</a></li>
                   <li><a href="#">Romance</a></li>
                   <li><a href="#">Adventure</a></li>
-                </ul> 
+                </ul>
               </div>
             </li>
           </ul>
         </div>
       </nav>
-    </div> <!-- close of container -->
+    </div>
+    <!-- close of container -->
   </header>
 
       <main>
-          <section class="bg-dark">
+          <section class="bg-dark margin-top-nav">
               <div class="container">
                   <h1 class="h3">Popular Series</h1>
 
