@@ -118,45 +118,30 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"home.js":[function(require,module,exports) {
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+const faq = document.querySelector(".questions"); // const questions = document.querySelectorAll('.question');
 
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+const header = document.querySelector(".primary-header");
+const hero = document.querySelector(".hero"); // question accordian
 
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-var faq = document.querySelector(".questions"); // const questions = document.querySelectorAll('.question');
-
-var header = document.querySelector(".primary-header");
-var hero = document.querySelector(".hero"); // question accordian
-
-faq.addEventListener("click", function (e) {
+faq.addEventListener("click", e => {
   // questions.forEach(question => {
   //     question.querySelector('.info').classList.add('hidden');
   //     question.querySelector('.arrow').classList.add('rotate');
   // });
   if (e.target.classList.contains("question-title") || e.target.classList.contains("arrow")) {
     // const parent = e.target.parentElement.parentElement;
-    var parent = e.target.closest(".question");
-    var info = parent.querySelector(".info");
-    var rotate = parent.querySelector(".arrow");
+    const parent = e.target.closest(".question");
+    const info = parent.querySelector(".info");
+    const rotate = parent.querySelector(".arrow");
     info.classList.toggle("hidden");
     rotate.classList.toggle("rotate");
   }
 }); // fixed nav intersection observer
 
-var navFixed = function navFixed(entries) {
+const navFixed = entries => {
   // entries gives an array so i used destructuring to get a single entry so that the function can work right.
   console.log(entries);
-
-  var _entries = _slicedToArray(entries, 1),
-      entry = _entries[0];
-
+  const [entry] = entries;
   console.log(entry); // it will run at least once the moment it is observer is initialized so i put the a check in place.
 
   if (!entry.isIntersecting) {
@@ -166,7 +151,7 @@ var navFixed = function navFixed(entries) {
   }
 };
 
-var observer = new IntersectionObserver(navFixed, {
+const observer = new IntersectionObserver(navFixed, {
   root: null,
   threshold: 0
 });
@@ -199,7 +184,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57011" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55922" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -47,3 +47,5 @@ const observer = new IntersectionObserver(navFixed, {
 });
 
 observer.observe(hero);
+
+

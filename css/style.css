@@ -243,8 +243,12 @@ h2,
 .anime-card .image {
   border-radius: var(--border-radius);
   overflow: hidden;
+  height: 275px;
 }
 .anime-card .poster {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
   transform: scale(105%);
   transition: transform var(--animation-350);
 }
@@ -260,6 +264,7 @@ h2,
 }
 .anime-card .rating {
   display: flex;
+  margin-left: 0.5em;
 }
 .anime-card .rating > * + * {
   margin-left: 0.25em;
