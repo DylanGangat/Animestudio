@@ -1,4 +1,4 @@
-import { getCard } from "./grid.js";
+import { getAnimeShows } from "./grid.js";
 
 const navToggle = document.querySelector(".nav-toggle");
 const overlay = document.querySelector(".overlay");
@@ -53,4 +53,4 @@ search.addEventListener("click", e => {
 
 // Get popular Series from fetch api and displayed in grid.html
 
-getCard();
+getAnimeShows();
