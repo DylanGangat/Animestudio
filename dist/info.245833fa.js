@@ -123,15 +123,19 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.overlay = exports.search = void 0;
+exports.SESSION_STORAGE_KEY = exports.overlay = exports.search = void 0;
 const navToggle = document.querySelector(".nav-toggle");
 const nav = document.querySelector(".nav");
 const openAccordian = document.querySelectorAll(".open-accordian");
 const search = document.querySelector(".search input");
 exports.search = search;
-const overlay = document.querySelector(".overlay"); // hamburger menu toggle
-
+const overlay = document.querySelector(".overlay");
 exports.overlay = overlay;
+const genreDropdown = document.querySelector("[data-genre]");
+const SESSION_STORAGE_KEY = "ANIME-SHOW-info";
+exports.SESSION_STORAGE_KEY = SESSION_STORAGE_KEY;
+const LOCAL_STORAGE_KEY = "GENRE-ID"; // hamburger menu toggle
+
 navToggle.addEventListener("click", () => {
   if (search.className != "hidden") {
     overlay.classList.add("hidden");
@@ -166,6 +170,15 @@ search.addEventListener("click", e => {
   e.preventDefault();
   search.classList.toggle("hidden");
   overlay.classList.toggle("hidden");
+}); // Genre event listener
+// Get the genre id when clicking one of the types of genres in the navigation & store in localStorage
+
+genreDropdown.addEventListener("click", e => {
+  if (e.target.dataset.genreId) {
+    const genreId = e.target.dataset.genreId;
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(genreId));
+    console.log(e.target, genreId);
+  }
 });
 },{}],"grid.js":[function(require,module,exports) {
 "use strict";
@@ -184,7 +197,8 @@ const SESSION_STORAGE_KEY = "ANIME-SHOW-info"; // To round off the rating to onl
 
 exports.SESSION_STORAGE_KEY = SESSION_STORAGE_KEY;
 
-const roundedOff = score => score.toFixed(1);
+const roundedOff = score => score.toFixed(1); // 2
+
 
 const animeCardTemplate = show => {
   const {
@@ -216,7 +230,8 @@ const animeCardTemplate = show => {
       </div>
       `;
   popularSeries.innerHTML += card;
-};
+}; // 1
+
 
 const getAnimeShows = async () => {
   const URL = "https://api.jikan.moe/v3/top/anime/1/tv"; // get top shows
@@ -283,6 +298,8 @@ document.body.addEventListener("click", e => {
 "use strict";
 
 var _grid = require("./grid.js");
+
+require("./nav.js");
 
 const infoPage = document.querySelector("[data-info-page]");
 const recommendedList = document.querySelector("[data-recommended]");
@@ -371,7 +388,7 @@ const getRecommendation = async id => {
     if (response.ok) {
       const data = await response.json();
       console.log("Recommended: ", data);
-      const recommendedAnime = data.recommendations.slice(0, 4);
+      const recommendedAnime = data.recommendations.slice(0, 8);
       recommendedList.innerHTML = ""; // added this because when you click on a recommended card it will display the previous 4 and the new 4. So i remove the previous for before getting the new 4.
 
       recommendedAnime.forEach(recommendedCardTemplate);
@@ -421,11 +438,8 @@ const recommendedCardTemplate = show => {
   </div>
   `;
   recommendedList.innerHTML += card;
-}; //* =========================== *//
-//  GENRE
-//* =========================== *//
-// const URL = `https://api.jikan.moe/v3/genre/anime/${genre_id}/page(1)`;
-},{"./grid.js":"grid.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+};
+},{"./grid.js":"grid.js","./nav.js":"nav.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -453,7 +467,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52021" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61592" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

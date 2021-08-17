@@ -180,25 +180,22 @@ genreDropdown.addEventListener("click", e => {
     console.log(e.target, genreId);
   }
 });
-},{}],"grid.js":[function(require,module,exports) {
+},{}],"genre.js":[function(require,module,exports) {
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.getAnimeShows = exports.SESSION_STORAGE_KEY = void 0;
 
 var _nav = require("./nav.js");
 
-// import "./nav.js";
-const popularSeries = document.querySelector("[data-popular-anime]");
+// import { overlay, SESSION_STORAGE_KEY } from "./nav.js";
+const SESSION_STORAGE_KEY = "ANIME-SHOW-info";
+const LOCAL_STORAGE_KEY = "GENRE-ID";
 const searchForm = document.querySelector(".search");
-const SESSION_STORAGE_KEY = "ANIME-SHOW-info"; // To round off the rating to only 1 decimal place.
+const popularSeries = document.querySelector("[data-popular-anime]");
+const genreTitle = document.querySelector("[data-genre-name]"); // Get genre id from local storage and call getGenre with it.
 
-exports.SESSION_STORAGE_KEY = SESSION_STORAGE_KEY;
+const genreId = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+console.log("genreId: ", genreId);
 
-const roundedOff = score => score.toFixed(1); // 2
-
+const roundedOff = score => score.toFixed(1);
 
 const animeCardTemplate = show => {
   const {
@@ -230,29 +227,27 @@ const animeCardTemplate = show => {
       </div>
       `;
   popularSeries.innerHTML += card;
-}; // 1
+}; // /* =============================
+//   GET GENRE
+//   ============================== */
 
 
-const getAnimeShows = async () => {
-  const URL = "https://api.jikan.moe/v3/top/anime/1/tv"; // get top shows
-
+const getGenre = async genreId => {
+  const URL = `https://api.jikan.moe/v3/genre/anime/${genreId}/1`;
   const response = await fetch(URL);
 
-  try {
-    if (response.ok) {
-      const data = await response.json();
-      const topShows = data.top.slice(0, 20);
-      topShows.forEach(animeCardTemplate);
-    } else {
-      console.log("shows error");
-    }
-  } catch (e) {
-    console.error(e);
+  if (response.ok) {
+    const data = await response.json();
+    console.log(data);
+    const genreName = data.mal_url.name;
+    const genreShows = data.anime.slice(0, 25);
+    genreTitle.innerText = genreName;
+    genreShows.forEach(animeCardTemplate);
+    console.log(genreName, genreShows);
   }
 };
 
-exports.getAnimeShows = getAnimeShows;
-getAnimeShows(); // /* =============================
+getGenre(genreId); // /* =============================
 //   GET SEARCH
 //   ============================== */
 
@@ -265,8 +260,8 @@ const searchedAnime = async animeName => {
     if (!response.ok) return console.log("Anime search error");
     const data = await response.json();
     console.log("Data: ", data);
-    const shows = data.results.slice(0, 20); // console.log(shows);
-
+    const shows = data.results.slice(0, 20);
+    console.log(shows);
     popularSeries.innerHTML = "";
     shows.forEach(animeCardTemplate);
   } catch (e) {
@@ -276,31 +271,24 @@ const searchedAnime = async animeName => {
 
 searchForm.addEventListener("submit", e => {
   e.preventDefault();
-  const animeName = _nav.search.value;
-  if (!animeName.length) return; // console.log(animeName);
-
+  const animeName = search.value;
+  if (!animeName.length) return;
+  console.log(animeName);
   searchedAnime(animeName);
   searchForm.reset();
-
-  _nav.search.classList.toggle("hidden");
+  search.classList.toggle("hidden");
 
   _nav.overlay.classList.toggle("hidden");
 }); // Get anime id when clicked to get anime details
 
 document.body.addEventListener("click", e => {
   if (e.target.classList.contains("name")) {
-    const animeId = e.target.dataset.id; // console.log(animeId);
-
+    const animeId = e.target.dataset.id;
+    console.log(animeId);
     sessionStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(animeId)); //  stores anime id in session storage
   }
 });
-},{"./nav.js":"nav.js"}],"script.js":[function(require,module,exports) {
-"use strict";
-
-var _grid = require("./grid.js");
-
-require("./nav.js");
-},{"./grid.js":"grid.js","./nav.js":"nav.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./nav.js":"nav.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -504,5 +492,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","script.js"], null)
-//# sourceMappingURL=/script.75da7f30.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","genre.js"], null)
+//# sourceMappingURL=/genre.185d7132.js.map

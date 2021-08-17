@@ -123,15 +123,19 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.overlay = exports.search = void 0;
+exports.SESSION_STORAGE_KEY = exports.overlay = exports.search = void 0;
 const navToggle = document.querySelector(".nav-toggle");
 const nav = document.querySelector(".nav");
 const openAccordian = document.querySelectorAll(".open-accordian");
 const search = document.querySelector(".search input");
 exports.search = search;
-const overlay = document.querySelector(".overlay"); // hamburger menu toggle
-
+const overlay = document.querySelector(".overlay");
 exports.overlay = overlay;
+const genreDropdown = document.querySelector("[data-genre]");
+const SESSION_STORAGE_KEY = "ANIME-SHOW-info";
+exports.SESSION_STORAGE_KEY = SESSION_STORAGE_KEY;
+const LOCAL_STORAGE_KEY = "GENRE-ID"; // hamburger menu toggle
+
 navToggle.addEventListener("click", () => {
   if (search.className != "hidden") {
     overlay.classList.add("hidden");
@@ -166,6 +170,15 @@ search.addEventListener("click", e => {
   e.preventDefault();
   search.classList.toggle("hidden");
   overlay.classList.toggle("hidden");
+}); // Genre event listener
+// Get the genre id when clicking one of the types of genres in the navigation & store in localStorage
+
+genreDropdown.addEventListener("click", e => {
+  if (e.target.dataset.genreId) {
+    const genreId = e.target.dataset.genreId;
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(genreId));
+    console.log(e.target, genreId);
+  }
 });
 },{}],"movies.js":[function(require,module,exports) {
 "use strict";
@@ -177,7 +190,6 @@ exports.getMovies = exports.SESSION_STORAGE_KEY = void 0;
 
 require("./nav.js");
 
-// import { search, overlay } from "./script.js";
 const popularSeries = document.querySelector("[data-popular-anime]");
 const searchForm = document.querySelector(".search");
 const SESSION_STORAGE_KEY = "ANIME-SHOW-info";
@@ -308,7 +320,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52021" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61592" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

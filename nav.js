@@ -3,7 +3,9 @@ const nav = document.querySelector(".nav");
 const openAccordian = document.querySelectorAll(".open-accordian");
 export const search = document.querySelector(".search input");
 export const overlay = document.querySelector(".overlay");
-
+const genreDropdown = document.querySelector("[data-genre]");
+export const SESSION_STORAGE_KEY = "ANIME-SHOW-info";
+const LOCAL_STORAGE_KEY = "GENRE-ID";
 
 // hamburger menu toggle
 
@@ -46,3 +48,14 @@ search.addEventListener("click", e => {
   overlay.classList.toggle("hidden");
 });
 
+// Genre event listener
+
+// Get the genre id when clicking one of the types of genres in the navigation & store in localStorage
+
+genreDropdown.addEventListener("click", e => {
+  if (e.target.dataset.genreId) {
+    const genreId = e.target.dataset.genreId;
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(genreId));
+    console.log(e.target, genreId);
+  }
+});

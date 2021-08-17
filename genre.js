@@ -1,12 +1,17 @@
 import "./nav.js";
+// import { overlay, SESSION_STORAGE_KEY } from "./nav.js";
+import { overlay } from "./nav.js";
+const SESSION_STORAGE_KEY = "ANIME-SHOW-info";
+const LOCAL_STORAGE_KEY = "GENRE-ID";
 
-const popularSeries = document.querySelector("[data-popular-anime]");
 const searchForm = document.querySelector(".search");
-export const SESSION_STORAGE_KEY = "ANIME-SHOW-info";
-const search = document.querySelector(".search input");
-const overlay = document.querySelector(".overlay");
+const popularSeries = document.querySelector("[data-popular-anime]");
+const genreTitle = document.querySelector("[data-genre-name]");
 
-// To round off the rating to only 1 decimal place.
+// Get genre id from local storage and call getGenre with it.
+
+const genreId = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+console.log("genreId: ", genreId);
 
 const roundedOff = score => score.toFixed(1);
 
@@ -38,29 +43,32 @@ const animeCardTemplate = show => {
   popularSeries.innerHTML += card;
 };
 
-// Get Movies
+// /* =============================
+//   GET GENRE
+//   ============================== */
 
-export const getMovies = async () => {
-  const URL = "https://api.jikan.moe/v3/top/anime/1/movie"; // get top movies
+const getGenre = async genreId => {
+  const URL = `https://api.jikan.moe/v3/genre/anime/${genreId}/1`;
   const response = await fetch(URL);
-  try {
-    if (response.ok) {
-      const data = await response.json();
-      const topShows = data.top.slice(0, 20);
-      topShows.forEach(animeCardTemplate);
-    } else {
-      console.log("shows error");
-    }
-  } catch (e) {
-    console.error(e);
+
+  if (response.ok) {
+    const data = await response.json();
+    console.log(data);
+    const genreName = data.mal_url.name;
+    const genreShows = data.anime.slice(0, 25);
+
+    genreTitle.innerText = genreName;
+    genreShows.forEach(animeCardTemplate);
+
+    console.log(genreName, genreShows);
   }
 };
 
-getMovies();
+getGenre(genreId);
 
-/* =============================
-  GET SEARCH
-  ============================== */
+// /* =============================
+//   GET SEARCH
+//   ============================== */
 
 const searchedAnime = async animeName => {
   const URL = `https://api.jikan.moe/v3/search/anime?q=${animeName}`;
@@ -96,7 +104,7 @@ searchForm.addEventListener("submit", e => {
 document.body.addEventListener("click", e => {
   if (e.target.classList.contains("name")) {
     const animeId = e.target.dataset.id;
-    // console.log(animeId);
+    console.log(animeId);
     sessionStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(animeId)); //  stores anime id in session storage
   }
 });

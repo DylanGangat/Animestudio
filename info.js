@@ -1,4 +1,5 @@
 import { SESSION_STORAGE_KEY } from "./grid.js";
+import "./nav.js";
 
 const infoPage = document.querySelector("[data-info-page]");
 const recommendedList = document.querySelector("[data-recommended]");
@@ -85,7 +86,7 @@ const getRecommendation = async id => {
     if (response.ok) {
       const data = await response.json();
       console.log("Recommended: ", data);
-      const recommendedAnime = data.recommendations.slice(0, 4);
+      const recommendedAnime = data.recommendations.slice(0, 8);
       recommendedList.innerHTML = ""; // added this because when you click on a recommended card it will display the previous 4 and the new 4. So i remove the previous for before getting the new 4.
       recommendedAnime.forEach(recommendedCardTemplate);
       recommendedList.addEventListener("click", e => {
@@ -132,9 +133,3 @@ const recommendedCardTemplate = show => {
 
   recommendedList.innerHTML += card;
 };
-
-//* =========================== *//
-//  GENRE
-//* =========================== *//
-
-// const URL = `https://api.jikan.moe/v3/genre/anime/${genre_id}/page(1)`;

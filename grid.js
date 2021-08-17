@@ -9,7 +9,8 @@ export const SESSION_STORAGE_KEY = "ANIME-SHOW-info";
 
 const roundedOff = score => score.toFixed(1);
 
- const animeCardTemplate = show => {
+// 2
+const animeCardTemplate = show => {
   const { image_url, mal_id, title, score } = show;
   const rating = roundedOff(score);
   const card = `
@@ -37,6 +38,7 @@ const roundedOff = score => score.toFixed(1);
   popularSeries.innerHTML += card;
 };
 
+// 1
 export const getAnimeShows = async () => {
   const URL = "https://api.jikan.moe/v3/top/anime/1/tv"; // get top shows
   const response = await fetch(URL);
