@@ -77,11 +77,12 @@
 
   .rating {
     display: flex;
+    align-items: center;
     margin-left: 0.5em;
   }
 
   .rating > * + * {
-    margin-left: 0.25em;
+    margin-left: 0.1em;
   }
 
   .name {

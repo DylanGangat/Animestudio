@@ -1,14 +1,12 @@
 :root {
   // colours
 
-  --clr-primary: #2c3842;
+  --clr-primary: hsl(207, 20%, 22%);
   --clr-secondary: hsl(256, 78%, 53%);
-  --clr-secondary: rgba(92, 42, 229, 0.5);
-  --clr-secondary: rgb(92, 42, 229);
   --clr-accent: hsl(0, 100%, 93%);
   --clr-base: hsl(0, 0%, 100%);
 
-  --clr-grey-400: hsl(249, 19%, 93%);
+  --clr-grey-400: hsl(249, 20%, 93%);
   --clr-grey-600: hsl(213, 4%, 40%);
 
   // font family
@@ -55,6 +53,5 @@
   // animation
 
   --animation-450: 450ms ease-in;
-
   --animation-350: 350ms ease-in;
 }

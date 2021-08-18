@@ -100,13 +100,11 @@ body {
   }
 }
 :root {
-  --clr-primary: #2c3842;
+  --clr-primary: hsl(207, 20%, 22%);
   --clr-secondary: hsl(256, 78%, 53%);
-  --clr-secondary: rgba(92, 42, 229, 0.5);
-  --clr-secondary: rgb(92, 42, 229);
   --clr-accent: hsl(0, 100%, 93%);
   --clr-base: hsl(0, 0%, 100%);
-  --clr-grey-400: hsl(249, 19%, 93%);
+  --clr-grey-400: hsl(249, 20%, 93%);
   --clr-grey-600: hsl(213, 4%, 40%);
   --ff-primary: "Open Sans", sans-serif;
   --fs-300: 0.875rem;
@@ -264,10 +262,11 @@ h2,
 }
 .anime-card .rating {
   display: flex;
+  align-items: center;
   margin-left: 0.5em;
 }
 .anime-card .rating > * + * {
-  margin-left: 0.25em;
+  margin-left: 0.1em;
 }
 .anime-card .name {
   transition: color var(--animation-350);
@@ -739,8 +738,6 @@ section {
   --flow-space: 1.5rem;
 }
 .hero .hero-image {
-  border-radius: var(--border-radius);
-  overflow: hidden;
   align-self: center;
 }
 @media (min-width: 50em) {
@@ -751,6 +748,7 @@ section {
   }
   .hero .split {
     flex-wrap: wrap;
+    justify-content: space-between;
   }
   .hero .info {
     flex-basis: 55%;

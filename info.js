@@ -67,7 +67,7 @@ const animeInfoTemplate = info => {
       </div>
     </div>
     <div class="image">
-      <img src="${image_url}" width="420px" alt="" />
+      <img src="${image_url}" width="100%" alt="" />
     </div>
   </div>
       `;
@@ -86,7 +86,7 @@ const getRecommendation = async id => {
     if (response.ok) {
       const data = await response.json();
       console.log("Recommended: ", data);
-      const recommendedAnime = data.recommendations.slice(0, 8);
+      const recommendedAnime = data.recommendations.slice(0, 4);
       recommendedList.innerHTML = ""; // added this because when you click on a recommended card it will display the previous 4 and the new 4. So i remove the previous for before getting the new 4.
       recommendedAnime.forEach(recommendedCardTemplate);
       recommendedList.addEventListener("click", e => {
@@ -125,7 +125,9 @@ const recommendedCardTemplate = show => {
           </h3>
           <div class="rating">
               <p>${recommendation_count}</p>
-
+              <svg  width="21" height="21" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="#5c2ae5">
+                <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
+              </svg>
           </div>
       </div>
   </div>

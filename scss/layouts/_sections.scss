@@ -13,8 +13,6 @@ section {
   --flow-space: 1.5rem;
 
   .hero-image {
-    border-radius: var(--border-radius);
-    overflow: hidden;
     align-self: center;
   }
 
@@ -25,6 +23,7 @@ section {
 
     .split {
       flex-wrap: wrap;
+      justify-content: space-between;
     }
 
     .info {
