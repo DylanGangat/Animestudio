@@ -200,13 +200,13 @@ h2,
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 14rem));
   gap: 2em;
   --spacer: 2rem;
 }
 @media (min-width: 31.25em) {
   .grid {
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
   }
 }
 @media (min-width: 50em) {
@@ -241,19 +241,18 @@ h2,
 .anime-card .image {
   border-radius: var(--border-radius);
   overflow: hidden;
-  height: 275px;
+  height: 19.875rem;
 }
 .anime-card .poster {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  transform: scale(105%);
   transition: transform var(--animation-350);
 }
 .anime-card:hover .poster, .anime-card:focus .poster,
 .anime-card .poster:hover,
 .anime-card .poster:focus {
-  transform: scale(100%);
+  transform: scale(102%);
 }
 .anime-card .info {
   display: flex;
@@ -584,7 +583,9 @@ h2,
   color: var(--clr-primary);
 }
 .secondary-header .dropdown-menu {
-  padding: 1rem 0 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
   border-top: 1px solid var(--clr-secondary);
   background-color: var(--clr-base);
   transition: max-height var(--animation-450), opacity var(--animation-450), padding-top var(--animation-450), padding-bottom var(--animation-450), overflow var(--animation-450), transform var(--animation-450);

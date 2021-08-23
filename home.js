@@ -97,4 +97,3 @@ const movieCardTemplate = show => {
 };
 
 getMovies();
-

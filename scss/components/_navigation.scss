@@ -163,23 +163,6 @@
     border-bottom: 1px solid currentColor;
   }
 
-  // .nav-item .dropdown-heading {
-  //   position: relative;
-  //   z-index: 0;
-  // }
-
-    // added this so the dropdown menu can traslate y downawards from the dropdown heading but underneath the heading
-  // .nav-item .dropdown-heading::before {
-  //   position: absolute;
-  //   content: '';
-  //   top: 0;
-  //   bottom: 0;
-  //   right: 0;
-  //   left: 0;
-  //   background-color: var(--clr-accent);
-  //   z-index: -1;
-  // } 
-
   .nav-item a {
     display: flex;
     justify-content: space-between;
@@ -214,23 +197,19 @@
   // --- dropdown menu --- //
 
   .dropdown-menu {
-    // Need this to be under the background-color psuedo element of dropdown heading so i can translaye y it.
-    // position: relative;
-    // z-index: -2;
+    display: flex;
+    justify-content: space-between;
 
     // had to add padding so it could align with the nav-item because everything is position: absolute to the secondary header.
-    padding: 1rem 0 1rem 2rem;
+    // padding: 1rem 0 1rem 2rem;
+    padding: 1rem 2rem;
     border-top: 1px solid var(--clr-secondary);
     background-color: var(--clr-base);
 
     // animation
-    transition: 
-     max-height var(--animation-450),
-     opacity var(--animation-450),
-     padding-top var(--animation-450),
-     padding-bottom var(--animation-450),
-     overflow var(--animation-450),
-     transform var(--animation-450); 
+      transition: max-height var(--animation-450), opacity var(--animation-450),
+      padding-top var(--animation-450), padding-bottom var(--animation-450),
+      overflow var(--animation-450), transform var(--animation-450);
   }
 
   .dropdown a {
@@ -248,10 +227,10 @@
     // animation
     padding-bottom: 0;
     padding-top: 0;
-    transform:  translateY(-10%);
+    transform: translateY(-10%);
     overflow: hidden;
     opacity: 0;
-    max-height: 0; 
+    max-height: 0;
     // z-index: -2;
   }
 
