@@ -73,9 +73,7 @@ const searchedAnime = async animeName => {
   try {
     if (!response.ok) return console.log("Anime search error");
     const data = await response.json();
-    console.log("Data: ", data);
     const shows = data.results.slice(0, 20);
-    console.log(shows);
     popularSeries.innerHTML = "";
     shows.forEach(animeCardTemplate);
   } catch (e) {
@@ -87,7 +85,6 @@ searchForm.addEventListener("submit", e => {
   e.preventDefault();
   const animeName = search.value;
   if (!animeName.length) return;
-  console.log(animeName);
   searchedAnime(animeName);
   searchForm.reset();
   search.classList.toggle("hidden");
@@ -99,7 +96,6 @@ searchForm.addEventListener("submit", e => {
 document.body.addEventListener("click", e => {
   if (e.target.classList.contains("name")) {
     const animeId = e.target.dataset.id;
-    // console.log(animeId);
     sessionStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(animeId)); //  stores anime id in session storage
   }
 });

@@ -74,7 +74,6 @@ const searchedAnime = async animeName => {
     const data = await response.json();
     console.log("Data: ", data);
     const shows = data.results.slice(0, 20);
-    // console.log(shows);
     popularSeries.innerHTML = "";
     shows.forEach(animeCardTemplate);
   } catch (e) {
@@ -86,7 +85,6 @@ searchForm.addEventListener("submit", e => {
   e.preventDefault();
   const animeName = search.value;
   if (!animeName.length) return;
-  // console.log(animeName);
   searchedAnime(animeName);
   searchForm.reset();
   search.classList.toggle("hidden");
@@ -98,7 +96,14 @@ searchForm.addEventListener("submit", e => {
 document.body.addEventListener("click", e => {
   if (e.target.classList.contains("name")) {
     const animeId = e.target.dataset.id;
-    // console.log(animeId);
     sessionStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(animeId)); //  stores anime id in session storage
   }
 });
+
+// If there is search result from info page the will get the anime show and display it
+
+if (sessionStorage.getItem("ANIME-SHOW-search")) {
+  console.log("there is something in search");
+  const animeName = sessionStorage.getItem("ANIME-SHOW-search");
+  searchedAnime(animeName);
+}

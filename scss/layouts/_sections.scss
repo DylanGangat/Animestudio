@@ -81,36 +81,3 @@ section {
     margin-right: auto;
   }
 }
-
-// shows page
-
-.shows-hero {
-  --spacer: 2rem;
-  height: calc(100vh - var(--secondary-header-height));
-
-  position: relative;
-  z-index: 1;
-  background-image: url("/images/demon-slayer-movie.webp");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top left;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    background: var(--linear-gradient);
-    z-index: -1;
-  }
-
-  .positioned {
-    display: flex;
-    height: 75vh;
-  }
-  .info {
-    margin-top: auto;
-  }
-}

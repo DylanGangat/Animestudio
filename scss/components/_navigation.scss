@@ -140,6 +140,8 @@
     font-weight: var(--fw-700);
     color: var(--clr-secondary);
     background-color: var(--clr-accent);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    overflow: hidden;
     z-index: -2; // needs to be above overlay but below secondary header psuedo background
 
     // animation
@@ -207,7 +209,7 @@
     background-color: var(--clr-base);
 
     // animation
-      transition: max-height var(--animation-450), opacity var(--animation-450),
+    transition: max-height var(--animation-450), opacity var(--animation-450),
       padding-top var(--animation-450), padding-bottom var(--animation-450),
       overflow var(--animation-450), transform var(--animation-450);
   }

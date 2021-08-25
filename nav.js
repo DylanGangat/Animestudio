@@ -28,7 +28,6 @@ overlay.addEventListener("click", e => {
 
 openAccordian.forEach(item => {
   item.addEventListener("click", e => {
-    // console.log(e.currentTarget);
     const dropdown = e.currentTarget.querySelector(".dropdown-menu");
     const rotate = e.currentTarget.querySelector("span");
     dropdown.classList.toggle("hidden");
@@ -56,6 +55,5 @@ genreDropdown.addEventListener("click", e => {
   if (e.target.dataset.genreId) {
     const genreId = e.target.dataset.genreId;
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(genreId));
-    console.log(e.target, genreId);
   }
 });

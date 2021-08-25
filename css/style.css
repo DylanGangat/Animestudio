@@ -545,6 +545,8 @@ h2,
   font-weight: var(--fw-700);
   color: var(--clr-secondary);
   background-color: var(--clr-accent);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  overflow: hidden;
   z-index: -2;
   transform: translateY(0%);
   transition: transform var(--animation-450) 450ms;
@@ -793,34 +795,6 @@ section {
   border-radius: var(--border-radius);
   overflow: hidden;
   margin-right: auto;
-}
-
-.shows-hero {
-  --spacer: 2rem;
-  height: calc(100vh - var(--secondary-header-height));
-  position: relative;
-  z-index: 1;
-  background-image: url("/images/demon-slayer-movie.webp");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top left;
-}
-.shows-hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background: var(--linear-gradient);
-  z-index: -1;
-}
-.shows-hero .positioned {
-  display: flex;
-  height: 75vh;
-}
-.shows-hero .info {
-  margin-top: auto;
 }
 
 .container {

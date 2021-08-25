@@ -1,6 +1,8 @@
-import { SESSION_STORAGE_KEY } from "./grid.js";
+// import { SESSION_STORAGE_KEY } from "./grid.js";
 import "./nav.js";
-
+import { search, overlay } from "./nav.js";
+const SESSION_STORAGE_KEY = "ANIME-SHOW-info";
+const searchForm = document.querySelector(".search");
 const infoPage = document.querySelector("[data-info-page]");
 const recommendedList = document.querySelector("[data-recommended]");
 let animeId = JSON.parse(sessionStorage.getItem(SESSION_STORAGE_KEY)); // get the id MUST change it to a let if you gonna change it occassionally
@@ -12,7 +14,6 @@ const getAnimeDetails = async id => {
   try {
     if (response.ok) {
       const data = await response.json();
-      console.log("Anime Details:", data);
       animeInfoTemplate(data); // use the anime info to populate the anime info template
       getRecommendation(id); // use the animeId to get recommended
     } else {
@@ -85,7 +86,6 @@ const getRecommendation = async id => {
 
     if (response.ok) {
       const data = await response.json();
-      console.log("Recommended: ", data);
       const recommendedAnime = data.recommendations.slice(0, 4);
       recommendedList.innerHTML = ""; // added this because when you click on a recommended card it will display the previous 4 and the new 4. So i remove the previous for before getting the new 4.
       recommendedAnime.forEach(recommendedCardTemplate);
@@ -135,3 +135,20 @@ const recommendedCardTemplate = show => {
 
   recommendedList.innerHTML += card;
 };
+
+// /* =============================
+//   GET SEARCH
+//   ============================== */
+
+searchForm.addEventListener("submit", e => {
+  e.preventDefault();
+  const animeName = search.value;
+  if (!animeName.length) return;
+  // Gets what you typed and the saves it and takes you to grid.html where it will call searchedAnime with what your value was
+
+  sessionStorage.setItem("ANIME-SHOW-search", animeName);
+  window.location.href = "./grid.html";
+  searchForm.reset();
+  search.classList.toggle("hidden");
+  overlay.classList.toggle("hidden");
+});

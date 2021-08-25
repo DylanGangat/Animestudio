@@ -153,7 +153,6 @@ overlay.addEventListener("click", e => {
 
 openAccordian.forEach(item => {
   item.addEventListener("click", e => {
-    // console.log(e.currentTarget);
     const dropdown = e.currentTarget.querySelector(".dropdown-menu");
     const rotate = e.currentTarget.querySelector("span");
     dropdown.classList.toggle("hidden");
@@ -177,7 +176,6 @@ genreDropdown.addEventListener("click", e => {
   if (e.target.dataset.genreId) {
     const genreId = e.target.dataset.genreId;
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(genreId));
-    console.log(e.target, genreId);
   }
 });
 },{}],"movies.js":[function(require,module,exports) {
@@ -267,9 +265,7 @@ const searchedAnime = async animeName => {
   try {
     if (!response.ok) return console.log("Anime search error");
     const data = await response.json();
-    console.log("Data: ", data);
     const shows = data.results.slice(0, 20);
-    console.log(shows);
     popularSeries.innerHTML = "";
     shows.forEach(animeCardTemplate);
   } catch (e) {
@@ -281,7 +277,6 @@ searchForm.addEventListener("submit", e => {
   e.preventDefault();
   const animeName = search.value;
   if (!animeName.length) return;
-  console.log(animeName);
   searchedAnime(animeName);
   searchForm.reset();
   search.classList.toggle("hidden");
@@ -290,8 +285,7 @@ searchForm.addEventListener("submit", e => {
 
 document.body.addEventListener("click", e => {
   if (e.target.classList.contains("name")) {
-    const animeId = e.target.dataset.id; // console.log(animeId);
-
+    const animeId = e.target.dataset.id;
     sessionStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(animeId)); //  stores anime id in session storage
   }
 });
@@ -323,7 +317,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50120" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58942" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

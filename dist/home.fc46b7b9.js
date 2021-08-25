@@ -119,8 +119,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"home.js":[function(require,module,exports) {
 // import { SESSION_STORAGE_KEY } from "./grid.js";
-const faq = document.querySelector(".questions"); // const questions = document.querySelectorAll('.question');
-
+const faq = document.querySelector(".questions");
 const header = document.querySelector(".primary-header");
 const hero = document.querySelector(".hero");
 const popularMovies = document.querySelector(".anime"); // question accordian
@@ -139,8 +138,7 @@ faq.addEventListener("click", e => {
 const navFixed = entries => {
   // entries gives an array so i used destructuring to get a single entry so that the function can work right.
   console.log(entries);
-  const [entry] = entries;
-  console.log(entry); // it will run at least once the moment it is observer is initialized so i put the a check in place.
+  const [entry] = entries; // it will run at least once the moment it is observer is initialized so i put the a check in place.
 
   if (!entry.isIntersecting) {
     header.classList.add("fixed");
@@ -168,7 +166,6 @@ const getMovies = async () => {
   try {
     const data = await response.json();
     const movies = data.top.slice(0, 4);
-    console.log("Movies: ", data.top.slice(0, 4));
     movies.forEach(movieCardTemplate);
   } catch (e) {
     console.error(e);
@@ -239,7 +236,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50120" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58942" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

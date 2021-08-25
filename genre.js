@@ -11,7 +11,6 @@ const genreTitle = document.querySelector("[data-genre-name]");
 // Get genre id from local storage and call getGenre with it.
 
 const genreId = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-console.log("genreId: ", genreId);
 
 const roundedOff = score => score.toFixed(1);
 
@@ -56,14 +55,10 @@ const getGenre = async genreId => {
 
   if (response.ok) {
     const data = await response.json();
-    console.log(data);
     const genreName = data.mal_url.name;
     const genreShows = data.anime.slice(0, 35);
-
     genreTitle.innerText = genreName;
     genreShows.forEach(animeCardTemplate);
-
-    console.log(genreName, genreShows);
   }
 };
 
@@ -76,14 +71,11 @@ getGenre(genreId);
 const searchedAnime = async animeName => {
   const URL = `https://api.jikan.moe/v3/search/anime?q=${animeName}`;
   const response = await fetch(URL);
-  console.log("Response: ", response);
 
   try {
     if (!response.ok) return console.log("Anime search error");
     const data = await response.json();
-    console.log("Data: ", data);
     const shows = data.results.slice(0, 20);
-    console.log(shows);
     popularSeries.innerHTML = "";
     shows.forEach(animeCardTemplate);
   } catch (e) {
@@ -95,7 +87,6 @@ searchForm.addEventListener("submit", e => {
   e.preventDefault();
   const animeName = search.value;
   if (!animeName.length) return;
-  console.log(animeName);
   searchedAnime(animeName);
   searchForm.reset();
   search.classList.toggle("hidden");
@@ -107,7 +98,6 @@ searchForm.addEventListener("submit", e => {
 document.body.addEventListener("click", e => {
   if (e.target.classList.contains("name")) {
     const animeId = e.target.dataset.id;
-    console.log(animeId);
     sessionStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(animeId)); //  stores anime id in session storage
   }
 });
