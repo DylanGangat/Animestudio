@@ -38,7 +38,7 @@
 
 @supports (scrollbar-color: var(--clr-secondary) var(--clr-primary)) {
   html {
-    scrollbar-color: var(--clr-secondary) var(--clr-primary);
+    scrollbar-color: var(--clr-secondary) var(--clr-accent);
   }
 }
 html ::-webkit-scrollbar {
@@ -265,12 +265,13 @@ h2,
   height: 100%;
   width: 100%;
   object-fit: cover;
+  transform: scale(1);
   transition: transform var(--animation-350);
 }
 .anime-card:hover .poster, .anime-card:focus .poster,
 .anime-card .poster:hover,
 .anime-card .poster:focus {
-  transform: scale(102%);
+  transform: scale(1.05);
 }
 .anime-card .info {
   display: flex;

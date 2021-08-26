@@ -58,6 +58,7 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
+    transform: scale(1);
     transition: transform var(--animation-350);
   }
 
@@ -65,7 +66,7 @@
   &:focus .poster,
   .poster:hover,
   .poster:focus {
-    transform: scale(102%);
+    transform: scale(1.05);
   }
 
   .info {

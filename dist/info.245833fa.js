@@ -220,7 +220,7 @@ const animeInfoTemplate = info => {
     trailer_url
   } = info;
   const description = `
-      <div class="info flow-content">
+    <div class="info flow-content">
       <h1 class="main-heading">${title}</h1>
       <p class="synopsis spacer">
         ${synopsis}
@@ -358,7 +358,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58932" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65091" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

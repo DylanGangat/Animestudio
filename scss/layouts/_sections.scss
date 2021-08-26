@@ -85,15 +85,6 @@ section {
     height: 15.5rem;
     overflow: auto;
 
-    // ::-webkit-scrollbar {
-    //   width: 8px;
-    // }
-
-    // ::-webkit-scrollbar-track {
-    //   background: var(--clr-accent);
-    //   border-radius: var(--border-radius);
-    // }
-
     @supports (scrollbar-color: var(--clr-secondary) var(--clr-accent)) {
       scrollbar-color: var(--clr-secondary) var(--clr-accent);
     }

@@ -32,7 +32,7 @@ getAnimeDetails(animeId);
 const animeInfoTemplate = info => {
   const { image_url, title, genres, synopsis, trailer_url } = info;
   const description = `
-      <div class="info flow-content">
+    <div class="info flow-content">
       <h1 class="main-heading">${title}</h1>
       <p class="synopsis spacer">
         ${synopsis}
