@@ -65,7 +65,7 @@ section {
 
 .anime-info {
   --spacer: 2rem;
-  
+
   .split {
     align-items: center;
   }
@@ -79,5 +79,36 @@ section {
     border-radius: var(--border-radius);
     overflow: hidden;
     margin-right: auto;
+  }
+
+  .synopsis {
+    height: 15.5rem;
+    overflow: auto;
+
+    // ::-webkit-scrollbar {
+    //   width: 8px;
+    // }
+
+    // ::-webkit-scrollbar-track {
+    //   background: var(--clr-accent);
+    //   border-radius: var(--border-radius);
+    // }
+
+    @supports (scrollbar-color: var(--clr-secondary) var(--clr-accent)) {
+      scrollbar-color: var(--clr-secondary) var(--clr-accent);
+    }
+
+    @supports (scrollbar-width: thin) {
+      scrollbar-width: thin;
+    }
+  }
+
+  .synopsis::-webkit-scrollbar-track {
+    background: var(--clr-accent);
+    border-radius: var(--border-radius);
+  }
+
+  .synopsis::-webkit-scrollbar {
+    width: 8px;
   }
 }

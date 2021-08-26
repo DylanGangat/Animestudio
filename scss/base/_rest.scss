@@ -6,6 +6,28 @@
   box-sizing: border-box;
 }
 
+html {
+  @supports (scrollbar-color: var(--clr-secondary) var(--clr-primary)) {
+    scrollbar-color: var(--clr-secondary) var(--clr-primary);
+  }
+
+  ::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--clr-accent);
+    border-radius: var(--border-radius);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--clr-secondary);
+    border-radius: var(--border-radius);
+    box-shadow: inset 2px 2px 2px hsl(0deg 0% 100% / 25%),
+      inset -2px -2px 2px rgb(0 0 0 / 25%);
+  }
+}
+
 // Set core root defaults
 
 html:focus-within {

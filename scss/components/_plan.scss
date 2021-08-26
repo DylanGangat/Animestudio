@@ -3,11 +3,15 @@
   border-collapse: collapse;
   font-weight: var(--fw-700);
 
-  .packages > * {
-    padding: .5em;
+  @media (min-width: 50em) {
+    font-size: var(--fs-500);
   }
 
-  // Added a background to packages and and benefits last child in order to use border-radius because I found with the colgroup I couldn't use border-radius.   
+  .packages > * {
+    padding: 0.5em;
+  }
+
+  // Added a background to packages and and benefits last child in order to use border-radius because I found with the colgroup I couldn't use border-radius.
   .packages th:last-child {
     background-color: var(--clr-secondary);
     border-radius: var(--border-radius) var(--border-radius) 0 0;

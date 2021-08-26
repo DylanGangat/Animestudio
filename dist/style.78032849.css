@@ -36,6 +36,24 @@
   box-sizing: border-box;
 }
 
+@supports (scrollbar-color: var(--clr-secondary) var(--clr-primary)) {
+  html {
+    scrollbar-color: var(--clr-secondary) var(--clr-primary);
+  }
+}
+html ::-webkit-scrollbar {
+  width: 16px;
+}
+html ::-webkit-scrollbar-track {
+  background: var(--clr-accent);
+  border-radius: var(--border-radius);
+}
+html ::-webkit-scrollbar-thumb {
+  background: var(--clr-secondary);
+  border-radius: var(--border-radius);
+  box-shadow: inset 2px 2px 2px rgba(255, 255, 255, 0.25), inset -2px -2px 2px rgba(0, 0, 0, 0.25);
+}
+
 html:focus-within {
   scroll-behavior: smooth;
 }
@@ -258,6 +276,9 @@ h2,
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.anime-card .title {
+  text-align: left;
 }
 .anime-card .rating {
   display: flex;
@@ -633,6 +654,11 @@ h2,
   border-collapse: collapse;
   font-weight: var(--fw-700);
 }
+@media (min-width: 50em) {
+  .plan-table {
+    font-size: var(--fs-500);
+  }
+}
 .plan-table .packages > * {
   padding: 0.5em;
 }
@@ -795,6 +821,27 @@ section {
   border-radius: var(--border-radius);
   overflow: hidden;
   margin-right: auto;
+}
+.anime-info .synopsis {
+  height: 15.5rem;
+  overflow: auto;
+}
+@supports (scrollbar-color: var(--clr-secondary) var(--clr-accent)) {
+  .anime-info .synopsis {
+    scrollbar-color: var(--clr-secondary) var(--clr-accent);
+  }
+}
+@supports (scrollbar-width: thin) {
+  .anime-info .synopsis {
+    scrollbar-width: thin;
+  }
+}
+.anime-info .synopsis::-webkit-scrollbar-track {
+  background: var(--clr-accent);
+  border-radius: var(--border-radius);
+}
+.anime-info .synopsis::-webkit-scrollbar {
+  width: 8px;
 }
 
 .container {
