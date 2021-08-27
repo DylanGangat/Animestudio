@@ -1,14 +1,18 @@
 .main-footer {
-  background-image: linear-gradient(90deg, var(--clr-accent), var(--clr-secondary));
+  background-image: linear-gradient(
+    90deg,
+    var(--clr-accent),
+    var(--clr-secondary)
+  );
   padding: 2rem 0;
   color: var(--clr-base);
-  
-  @media(min-width: 50em) {
+
+  @media (min-width: 50em) {
     padding: 4rem 0;
   }
 
   .logo {
-    @media(min-width: 50em) {
+    @media (min-width: 50em) {
       font-size: var(--fs-500);
     }
   }
@@ -29,7 +33,7 @@
 }
 
 .footer-nav {
-  h5 {
+  .h5 {
     display: inline-block;
     font-size: var(--fs-400);
     padding-bottom: 0.25em;
@@ -41,16 +45,16 @@
   }
 
   .list a path {
-      transition: fill var(--animation-350);
+    transition: fill var(--animation-350);
   }
 
   .list a:hover,
   .list a:focus {
     color: var(--clr-accent);
   }
- 
+
   .list a:hover path,
-  .list a:focus path  {
+  .list a:focus path {
     fill: var(--clr-accent);
   }
 
@@ -59,7 +63,7 @@
     align-items: center;
   }
   .socials span {
-      display: inline;
+    display: inline;
   }
 
   .socials a > * + * {

@@ -1,56 +1,59 @@
 h1,
 h2,
 h3 {
-    line-height: 1;
+  line-height: 1;
 }
 
 h1,
 h2 {
-    font-weight: var(--fw-300);
-    color: var(--fg, var(--clr-secondary));
+  font-weight: var(--fw-300);
+  color: var(--fg, var(--clr-secondary));
 }
 
 h1 {
-    font-size: var(--fs-800);
-    letter-spacing: -1.5px;
+  font-size: var(--fs-800);
+  letter-spacing: -1.5px;
 }
 
 h2,
 .h2 {
-    font-size: var(--fs-700);
-    letter-spacing: -0.5px;
-    max-width: 26ch;   
+  font-size: var(--fs-700);
+  letter-spacing: -0.5px;
+  max-width: 26ch;
 }
 
 .section-title {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .sub-heading,
 .h3 {
-    font-size: var(--fs-600);
-    line-height: 1.1;
-}
-
-.question-title,
-.subtitle {
-    font-size: var(--fs-500);    
+  font-size: var(--fs-600);
+  line-height: 1.1;
 }
 
 .subtitle {
-    max-width: 46ch;
-    margin-left: auto;
-    margin-right: auto;
+  font-size: var(--fs-500);
+}
+
+.subtitle {
+  max-width: 46ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .question-title {
-    font-weight: var(--fw-700); 
-    cursor: pointer;
+  font-size: var(--fs-400);
+  font-weight: var(--fw-700);
+  cursor: pointer;
+  @media (min-width: 50em) {
+    --fs-500: 1.25rem;
+    font-size: var(--fs-500);
+  }
 }
 
 .title {
-    font-size: var(--fs-400);
+  font-size: var(--fs-400);
 }
-
