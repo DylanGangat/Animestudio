@@ -5,8 +5,8 @@
   "main": "script.js",
   "scripts": {
     "watch": "sass --watch scss:css",
-    "start": "parcel home.html grid.html shows.html info-page.html",
-    "build": "parcel build home.html grid.html shows.html info-page.html"
+    "start": "parcel home.html grid.html movies.html info-page.html genre.html",
+    "build": "parcel build home.html grid.html movies.html info-page.html genre.html"
   },
   "repository": {
     "type": "git",
