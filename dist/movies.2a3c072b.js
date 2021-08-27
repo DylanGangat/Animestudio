@@ -242,7 +242,7 @@ const getMovies = async () => {
   try {
     if (response.ok) {
       const data = await response.json();
-      const topShows = data.top.slice(0, 35);
+      const topShows = data.top.slice(0, 25);
       topShows.forEach(animeCardTemplate);
     } else {
       console.log("shows error");
@@ -319,7 +319,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57007" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64160" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

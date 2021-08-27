@@ -56,7 +56,7 @@ const getGenre = async genreId => {
   if (response.ok) {
     const data = await response.json();
     const genreName = data.mal_url.name;
-    const genreShows = data.anime.slice(0, 35);
+    const genreShows = data.anime.slice(0, 25);
     genreTitle.innerText = genreName;
     genreShows.forEach(animeCardTemplate);
   }

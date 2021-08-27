@@ -240,7 +240,7 @@ const getGenre = async genreId => {
   if (response.ok) {
     const data = await response.json();
     const genreName = data.mal_url.name;
-    const genreShows = data.anime.slice(0, 35);
+    const genreShows = data.anime.slice(0, 25);
     genreTitle.innerText = genreName;
     genreShows.forEach(animeCardTemplate);
   }
@@ -311,7 +311,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57007" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64160" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

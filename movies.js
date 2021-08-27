@@ -49,7 +49,7 @@ export const getMovies = async () => {
   try {
     if (response.ok) {
       const data = await response.json();
-      const topShows = data.top.slice(0, 35);
+      const topShows = data.top.slice(0, 25);
       topShows.forEach(animeCardTemplate);
     } else {
       console.log("shows error");
