@@ -613,8 +613,9 @@ h2,
   color: var(--clr-primary);
 }
 .secondary-header .dropdown-menu {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  gap: 1em;
+  grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
   padding: 1rem 2rem;
   border-top: 1px solid var(--clr-secondary);
   background-color: var(--clr-base);

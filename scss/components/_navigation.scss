@@ -199,11 +199,11 @@
   // --- dropdown menu --- //
 
   .dropdown-menu {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    gap: 1em;
+    grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
 
     // had to add padding so it could align with the nav-item because everything is position: absolute to the secondary header.
-    // padding: 1rem 0 1rem 2rem;
     padding: 1rem 2rem;
     border-top: 1px solid var(--clr-secondary);
     background-color: var(--clr-base);
@@ -233,7 +233,6 @@
     overflow: hidden;
     opacity: 0;
     max-height: 0;
-    // z-index: -2;
   }
 
   // added this so i can have a overlay under my nav but i had to make the top 100% because it this is realtive to the header but the made the height and width 100% of view port width and used z-index to position it below the nav that has a higher index so it can be placed above.
