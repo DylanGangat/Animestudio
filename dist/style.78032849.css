@@ -778,15 +778,22 @@ section {
 
 .hero {
   --flow-space: 1.5rem;
+  text-align: center;
 }
 .hero .hero-image {
   align-self: center;
 }
+.hero .hero-image img {
+  max-height: 22rem;
+}
+.hero .companies {
+  justify-content: center;
+}
 @media (min-width: 50em) {
   .hero {
-    height: calc(100vh - var(--header-height));
     display: flex;
     align-items: center;
+    text-align: left;
   }
   .hero .split {
     flex-wrap: wrap;
@@ -801,7 +808,6 @@ section {
   .hero .companies {
     order: 1;
     flex-basis: 100%;
-    justify-content: center;
     padding: 2rem 0 0 0;
     margin: 0;
   }

@@ -11,15 +11,24 @@ section {
 
 .hero {
   --flow-space: 1.5rem;
+  text-align: center;
 
   .hero-image {
     align-self: center;
   }
 
+  .hero-image img {
+    max-height: 22rem;
+  }
+
+  .companies {
+    justify-content: center;
+  }
+
   @media (min-width: 50em) {
-    height: calc(100vh - var(--header-height));
     display: flex;
     align-items: center;
+    text-align: left;
 
     .split {
       flex-wrap: wrap;
@@ -37,7 +46,6 @@ section {
     .companies {
       order: 1;
       flex-basis: 100%;
-      justify-content: center;
       padding: 2rem 0 0 0;
       margin: 0;
     }
