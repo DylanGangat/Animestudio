@@ -1,70 +1,90 @@
 .container {
-    padding: 0 2rem;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: var(--max-width, 74.75rem);
+  padding: 0 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--max-width, 74.75rem);
 }
 
 .flow-content > * + * {
-    margin-top: var(--flow-space, 1rem);
+  margin-top: var(--flow-space, 1rem);
 }
 
 .split {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    @media(min-width: 50em) {
-        flex-direction: row;
-    }
+  @media (min-width: 50em) {
+    flex-direction: row;
+  }
 }
 
 .split > * {
-    flex-basis: 100%;
+  flex-basis: 100%;
 }
 
 .split > * + * {
-    margin: var(--split-spacer, 2rem) 0 0 0;
+  margin: var(--split-spacer, 2rem) 0 0 0;
 
-    @media(min-width: 50em) {
-        margin: 0 0 0 var(--split-spacer, 2rem);
-    }
+  @media (min-width: 50em) {
+    margin: 0 0 0 var(--split-spacer, 2rem);
+  }
 }
 
 .spacer {
-    margin-top: var(--spacer, 2rem);
+  margin-top: var(--spacer, 2rem);
 
-    @media(min-width: 50em) {
-        margin-top: var(--spacer, 4rem);
-    }
+  @media (min-width: 50em) {
+    margin-top: var(--spacer, 4rem);
+  }
 }
 
 .center {
-    text-align: center;
+  text-align: center;
 }
 
 .text-accent {
-    color: var(--clr-accent);
+  color: var(--clr-accent);
 }
 
 .text-base {
-    color: var(--clr-base);
+  color: var(--clr-base);
 }
 
 .bold {
-    font-weight: var(--fw-700);
+  font-weight: var(--fw-700);
 }
 
 .bg-dark {
-    --fg: var(--clr-base);
-    --bg: var(--clr-secondary);
-    --accent: var(--clr-accent);
+  --fg: var(--clr-base);
+  --bg: var(--clr-secondary);
+  --accent: var(--clr-accent);
 }
 
 .fixed {
-    position: fixed;
+  position: fixed;
 }
 
 .margin-top-nav {
-    margin-top: var(--secondary-header-height);
-} 
+  margin-top: var(--secondary-header-height);
+}
 
+// To hide content from the page but be visible for screen readers
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+}
