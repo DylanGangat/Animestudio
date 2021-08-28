@@ -5,6 +5,7 @@
   font-weight: 300;
   src: local(""), url("/open-sans-v20-latin-300.5ff400dd.woff2") format("woff2"), url("/open-sans-v20-latin-300.1897a34c.woff") format("woff");
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  font-display: swap;
 }
 /* open-sans-regular - latin */
 @font-face {
@@ -13,6 +14,7 @@
   font-weight: 400;
   src: local(""), url("/open-sans-v20-latin-regular.dffa37bc.woff2") format("woff2"), url("/open-sans-v20-latin-regular.5e3ada64.woff") format("woff");
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  font-display: swap;
 }
 /* open-sans-600 - latin */
 @font-face {
@@ -21,6 +23,7 @@
   font-weight: 600;
   src: local(""), url("/open-sans-v20-latin-600.17257781.woff2") format("woff2"), url("/open-sans-v20-latin-600.188e1a66.woff") format("woff");
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  font-display: swap;
 }
 /* open-sans-700 - latin */
 @font-face {
@@ -29,6 +32,7 @@
   font-weight: 700;
   src: local(""), url("/open-sans-v20-latin-700.13b06471.woff2") format("woff2"), url("/open-sans-v20-latin-700.77c2a279.woff") format("woff");
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  font-display: swap;
 }
 *,
 *::before,
