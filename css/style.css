@@ -823,9 +823,6 @@ section {
 .anime-info {
   --spacer: 2rem;
 }
-.anime-info .empty-space {
-  min-height: 58rem;
-}
 .anime-info .split {
   align-items: center;
 }
@@ -951,6 +948,10 @@ section {
   margin: 0;
   overflow: visible;
   position: static;
+}
+
+.prevent-jumping {
+  min-height: 100vh;
 }
 
 /*# sourceMappingURL=style.css.map */

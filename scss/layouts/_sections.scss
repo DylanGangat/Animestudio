@@ -66,11 +66,6 @@ section {
 .anime-info {
   --spacer: 2rem;
 
-  // Gives height for info section so when it loads it doesnt make similar like this heading jump down almost like loading images jump down.
-  .empty-space {
-    min-height: 58rem;
-  }
-
   .split {
     align-items: center;
   }

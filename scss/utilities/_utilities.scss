@@ -88,3 +88,8 @@
   overflow: visible;
   position: static;
 }
+
+// To prevent the page from jumping when api fetch the cards data to populate the grid area
+.prevent-jumping {
+  min-height: 100vh;
+}

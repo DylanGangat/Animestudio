@@ -68,7 +68,6 @@ getMovies();
 const searchedAnime = async animeName => {
   const URL = `https://api.jikan.moe/v3/search/anime?q=${animeName}`;
   const response = await fetch(URL);
-  console.log("Response: ", response);
 
   try {
     if (!response.ok) return console.log("Anime search error");

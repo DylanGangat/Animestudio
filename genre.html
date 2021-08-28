@@ -6,6 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Grid Page</title>
+  <link rel="preload" href="/fonts/open-sans-v20-latin-300.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/open-sans-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/open-sans-v20-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/open-sans-v20-latin-700.woff2" as="font" type="font/woff2" crossorigin>
   <meta name="description"
     content="Showcases one of the many genres of anime we offer. Whatever you're in the mood to watch we probably have you covered on animestudio+">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_package_v0.16/apple-touch-icon.png">
@@ -28,7 +32,7 @@
         <div class="side-nav">
           <form class="search">
             <label for="search"><img src="images/Search.svg" height="24" width="24" alt="magnifying glass" /></label>
-            <input class="hidden" type="search" name="search" id="search" placeholder="Search..." />
+            <input class="hidden" type="search" name="search" id="search" placeholder="Search..." autocomplete="off" />
           </form>
           <div class="profile">
             <img src="images/avatar.svg" height="27" width="27" alt="a person's profile picture avatar" />
@@ -114,7 +118,7 @@
       <div class="container">
         <h1 class="h3" data-genre-name>Genre</h1>
 
-        <div class="grid spacer" data-popular-anime>
+        <div class="grid prevent-jumping spacer" data-popular-anime>
         </div>
       </div> <!-- close of container -->
     </section>

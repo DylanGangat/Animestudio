@@ -261,7 +261,6 @@ getMovies();
 const searchedAnime = async animeName => {
   const URL = `https://api.jikan.moe/v3/search/anime?q=${animeName}`;
   const response = await fetch(URL);
-  console.log("Response: ", response);
 
   try {
     if (!response.ok) return console.log("Anime search error");
@@ -319,7 +318,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52285" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57985" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
