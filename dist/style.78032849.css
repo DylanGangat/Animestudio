@@ -705,13 +705,14 @@ h2,
 }
 
 .main-footer {
-  background-image: linear-gradient(90deg, var(--clr-accent), var(--clr-secondary));
+  background-image: linear-gradient(90deg, var(--clr-secondary), var(--clr-accent));
   padding: 2rem 0;
   color: var(--clr-base);
 }
 @media (min-width: 50em) {
   .main-footer {
     padding: 4rem 0;
+    background-image: linear-gradient(90deg, var(--clr-accent), var(--clr-secondary));
   }
 }
 @media (min-width: 50em) {
