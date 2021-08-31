@@ -1,10 +1,11 @@
 .primary-header {
+  position: relative;
+  z-index: 999;
   padding: 1rem 0;
   border-bottom: 1px solid var(--clr-grey-400);
   min-height: var(--header-height);
   background-color: var(--clr-base);
   width: 100%;
-  z-index: 999;
 
   .main-nav {
     display: flex;
@@ -13,7 +14,7 @@
     align-items: center;
     justify-content: center;
 
-    @media (min-width: 23.125em) {
+    @media (min-width: 22.5em) {
       flex-direction: row;
       justify-content: space-between;
     }
@@ -39,8 +40,253 @@
   }
 }
 
+// Sign in / Sign up forms shared styles
+
+// Added a mixin so i can reuse the styles to hide my forms plus mixin only works when in the same scss file *dont know why tho
+@mixin visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.signing-form {
+  position: absolute;
+  z-index: 998; // Needs to be under header(999)
+  top: calc(100% + 2em);
+  left: 0;
+  right: 0;
+  padding: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: var(--border-radius);
+  background-color: var(--clr-base);
+  width: 85%;
+  max-width: 28rem;
+
+  @media (min-width: 50em) {
+    form {
+      --spacer: 1.5rem;
+    }
+  }
+
+  .section-title {
+    --fs-700: 3rem;
+    text-align: left;
+  }
+
+  .description {
+    --spacer: 1.5rem;
+  }
+
+  form > * + * {
+    margin-top: 1em;
+  }
+
+  .signup-info > * + * {
+    margin-top: 1em;
+  }
+
+  button[type="submit"] {
+    margin-top: 2rem;
+  }
+
+  .user-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    font-size: var(--fs-300);
+    font-weight: var(--fw-700);
+    color: var(--clr-secondary);
+  }
+
+  input {
+    font-weight: var(--fw-600);
+    padding: 0.3em 0 0.5em;
+    border: none;
+    border-bottom: 2px solid var(--clr-accent);
+  }
+
+  input::placeholder {
+    color: var(--clr-grey-600);
+    opacity: 0.6;
+    font-weight: var(--fw-400);
+  }
+}
+
+// Sign in form
+
+.signin-form {
+  @media (min-width: 50em) {
+    padding: 3em;
+    width: 80%;
+    max-width: 30rem;
+  }
+
+  .user-info--extra {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0.6;
+  }
+
+  .user-info--extra label {
+    cursor: pointer;
+    margin-left: 0.25em;
+    font-size: 0.7rem;
+    font-weight: var(--fw-600);
+    color: var(--clr-grey-600);
+  }
+
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+  }
+
+  .fake-link {
+    font-size: 0.7rem;
+    font-weight: var(--fw-600);
+    color: var(--clr-grey-600);
+    cursor: pointer;
+    padding-bottom: 0.05em;
+    border-bottom: 1px solid rgba(98, 102, 106, 0.6);
+    transition: color var(--animation-350), border-color var(--animation-350);
+  }
+
+  .fake-link:hover,
+  .fake-link:focus {
+    color: var(--clr-secondary);
+    border-color: currentColor;
+  }
+
+  .sign-in-error {
+    margin-top: 0.25em;
+    font-size: var(--fs-300);
+    font-weight: var(--fw-600);
+    color: var(--clr-red-900);
+    border-radius: var(--border-radius);
+  }
+
+  .sign-in-error.hidden {
+    @include visually-hidden;
+  }
+}
+
+// Sign up form
+
+.signup-form {
+  @media (min-width: 50em) {
+    padding: 3em;
+    width: 80%;
+    max-width: 35rem;
+  }
+
+  .checkbox {
+    font-size: var(--fs-300);
+    font-weight: var(--fw-600);
+    color: var(--clr-grey-600);
+    opacity: 0.6;
+  }
+
+  .user-info--checkbox {
+    flex-direction: row;
+    align-items: start;
+  }
+
+  .user-info--checkbox label {
+    margin-left: 0.25em;
+  }
+}
+
+// Animation for form
+
+.animate {
+  animation: rightMove var(--animation-750);
+}
+
+@keyframes rightMove {
+  0% {
+    transform: translateX(-200%);
+  }
+
+  80% {
+    transform: translateX(25%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.form-overlay,
+.sign-in-overlay {
+  position: absolute;
+  z-index: 997; // Needs to be under signup-form(998)
+  top: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: calc(100vh - var(--header-height));
+  cursor: pointer;
+  background-color: var(--clr-accent);
+  opacity: 0.9;
+  transform: translateX(0);
+  transition: transform var(--animation-350);
+}
+
+// Hidden classes for hiding form and overlay
+
+.form-overlay.hidden,
+.sign-in-overlay.hidden {
+  @include visually-hidden;
+  transform: translateX(-100%);
+}
+
+.signup-form.hidden,
+.signin-form.hidden {
+  @include visually-hidden;
+  transform: translateX(-200%);
+}
+
+.error {
+  font-size: var(--fs-300);
+  font-weight: var(--fw-600);
+  padding: 1em;
+  color: var(--clr-red-900);
+  background-color: var(--clr-red-300);
+  text-align: center;
+  border-radius: var(--border-radius);
+}
+
+.success {
+  font-size: var(--fs-300);
+  font-weight: var(--fw-600);
+  padding: 1em;
+  color: var(--clr-green-900);
+  background-color: var(--clr-green-300);
+  text-align: center;
+  border-radius: var(--border-radius);
+}
+
+.error.hidden {
+  @include visually-hidden;
+}
+
+.success.hidden {
+  @include visually-hidden;
+}
+
+// ================
+// Secondary Header
+// ================
 .secondary-header {
-  position: relative;
   position: fixed;
   top: 0;
   left: 0;

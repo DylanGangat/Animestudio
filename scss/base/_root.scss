@@ -9,12 +9,18 @@
   --clr-grey-400: hsl(249, 20%, 93%);
   --clr-grey-600: hsl(213, 4%, 40%);
 
+  --clr-red-300: hsl(0, 100%, 89%);
+  --clr-red-900: hsl(0, 65%, 48%);
+
+  --clr-green-300: hsl(128, 71%, 82%);
+  --clr-green-900: hsl(132, 52%, 35%);
+
   // font family
 
   --ff-primary: "Open Sans", sans-serif;
 
   // font size
-
+  --fs-200: 0.625rem;
   --fs-300: 0.875rem; // btn
   --fs-400: 1rem; // p
   --fs-500: 1.25rem; // subtitle  + question
@@ -47,11 +53,13 @@
   --linear-gradient: linear-gradient(rgba(92, 42, 229, 0.4), rgb(92, 42, 229));
 
   // headers min height
+  
   --header-height: 4.8rem;
   --secondary-header-height: 3.75rem;
 
   // animation
 
-  --animation-450: 450ms ease-in;
   --animation-350: 350ms ease-in;
+  --animation-450: 450ms ease-in;
+  --animation-750: 750ms ease-in;
 }

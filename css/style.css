@@ -128,7 +128,12 @@ body {
   --clr-base: hsl(0, 0%, 100%);
   --clr-grey-400: hsl(249, 20%, 93%);
   --clr-grey-600: hsl(213, 4%, 40%);
+  --clr-red-300: hsl(0, 100%, 89%);
+  --clr-red-900: hsl(0, 65%, 48%);
+  --clr-green-300: hsl(128, 71%, 82%);
+  --clr-green-900: hsl(132, 52%, 35%);
   --ff-primary: "Open Sans", sans-serif;
+  --fs-200: 0.625rem;
   --fs-300: 0.875rem;
   --fs-400: 1rem;
   --fs-500: 1.25rem;
@@ -143,8 +148,9 @@ body {
   --linear-gradient: linear-gradient(rgba(92, 42, 229, 0.4), rgb(92, 42, 229));
   --header-height: 4.8rem;
   --secondary-header-height: 3.75rem;
-  --animation-450: 450ms ease-in;
   --animation-350: 350ms ease-in;
+  --animation-450: 450ms ease-in;
+  --animation-750: 750ms ease-in;
 }
 @media (min-width: 50em) {
   :root {
@@ -454,12 +460,13 @@ h2,
 }
 
 .primary-header {
+  position: relative;
+  z-index: 999;
   padding: 1rem 0;
   border-bottom: 1px solid var(--clr-grey-400);
   min-height: var(--header-height);
   background-color: var(--clr-base);
   width: 100%;
-  z-index: 999;
 }
 .primary-header .main-nav {
   display: flex;
@@ -468,7 +475,7 @@ h2,
   align-items: center;
   justify-content: center;
 }
-@media (min-width: 23.125em) {
+@media (min-width: 22.5em) {
   .primary-header .main-nav {
     flex-direction: row;
     justify-content: space-between;
@@ -492,8 +499,240 @@ h2,
   margin-left: 1em;
 }
 
+.signing-form {
+  position: absolute;
+  z-index: 998;
+  top: calc(100% + 2em);
+  left: 0;
+  right: 0;
+  padding: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: var(--border-radius);
+  background-color: var(--clr-base);
+  width: 85%;
+  max-width: 28rem;
+}
+@media (min-width: 50em) {
+  .signing-form form {
+    --spacer: 1.5rem;
+  }
+}
+.signing-form .section-title {
+  --fs-700: 3rem;
+  text-align: left;
+}
+.signing-form .description {
+  --spacer: 1.5rem;
+}
+.signing-form form > * + * {
+  margin-top: 1em;
+}
+.signing-form .signup-info > * + * {
+  margin-top: 1em;
+}
+.signing-form button[type=submit] {
+  margin-top: 2rem;
+}
+.signing-form .user-info {
+  display: flex;
+  flex-direction: column;
+}
+.signing-form label {
+  font-size: var(--fs-300);
+  font-weight: var(--fw-700);
+  color: var(--clr-secondary);
+}
+.signing-form input {
+  font-weight: var(--fw-600);
+  padding: 0.3em 0 0.5em;
+  border: none;
+  border-bottom: 2px solid var(--clr-accent);
+}
+.signing-form input::placeholder {
+  color: var(--clr-grey-600);
+  opacity: 0.6;
+  font-weight: var(--fw-400);
+}
+
+@media (min-width: 50em) {
+  .signin-form {
+    padding: 3em;
+    width: 80%;
+    max-width: 30rem;
+  }
+}
+.signin-form .user-info--extra {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0.6;
+}
+.signin-form .user-info--extra label {
+  cursor: pointer;
+  margin-left: 0.25em;
+  font-size: 0.7rem;
+  font-weight: var(--fw-600);
+  color: var(--clr-grey-600);
+}
+.signin-form .checkbox-group {
+  display: flex;
+  align-items: center;
+}
+.signin-form .fake-link {
+  font-size: 0.7rem;
+  font-weight: var(--fw-600);
+  color: var(--clr-grey-600);
+  cursor: pointer;
+  padding-bottom: 0.05em;
+  border-bottom: 1px solid rgba(98, 102, 106, 0.6);
+  transition: color var(--animation-350), border-color var(--animation-350);
+}
+.signin-form .fake-link:hover,
+.signin-form .fake-link:focus {
+  color: var(--clr-secondary);
+  border-color: currentColor;
+}
+.signin-form .sign-in-error {
+  margin-top: 0.25em;
+  font-size: var(--fs-300);
+  font-weight: var(--fw-600);
+  color: var(--clr-red-900);
+  border-radius: var(--border-radius);
+}
+.signin-form .sign-in-error.hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+@media (min-width: 50em) {
+  .signup-form {
+    padding: 3em;
+    width: 80%;
+    max-width: 35rem;
+  }
+}
+.signup-form .checkbox {
+  font-size: var(--fs-300);
+  font-weight: var(--fw-600);
+  color: var(--clr-grey-600);
+  opacity: 0.6;
+}
+.signup-form .user-info--checkbox {
+  flex-direction: row;
+  align-items: start;
+}
+.signup-form .user-info--checkbox label {
+  margin-left: 0.25em;
+}
+
+.animate {
+  animation: rightMove var(--animation-750);
+}
+
+@keyframes rightMove {
+  0% {
+    transform: translateX(-200%);
+  }
+  80% {
+    transform: translateX(25%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+.form-overlay,
+.sign-in-overlay {
+  position: absolute;
+  z-index: 997;
+  top: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: calc(100vh - var(--header-height));
+  cursor: pointer;
+  background-color: var(--clr-accent);
+  opacity: 0.9;
+  transform: translateX(0);
+  transition: transform var(--animation-350);
+}
+
+.form-overlay.hidden,
+.sign-in-overlay.hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  transform: translateX(-100%);
+}
+
+.signup-form.hidden,
+.signin-form.hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  transform: translateX(-200%);
+}
+
+.error {
+  font-size: var(--fs-300);
+  font-weight: var(--fw-600);
+  padding: 1em;
+  color: var(--clr-red-900);
+  background-color: var(--clr-red-300);
+  text-align: center;
+  border-radius: var(--border-radius);
+}
+
+.success {
+  font-size: var(--fs-300);
+  font-weight: var(--fw-600);
+  padding: 1em;
+  color: var(--clr-green-900);
+  background-color: var(--clr-green-300);
+  text-align: center;
+  border-radius: var(--border-radius);
+}
+
+.error.hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.success.hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
 .secondary-header {
-  position: relative;
   position: fixed;
   top: 0;
   left: 0;

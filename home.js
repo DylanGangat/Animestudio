@@ -2,6 +2,16 @@ const faq = document.querySelector(".questions");
 const header = document.querySelector(".primary-header");
 const hero = document.querySelector(".hero");
 const popularMovies = document.querySelector(".anime");
+const signInForm = document.querySelector("[data-sign-in]");
+const signUpForm = document.querySelector("[data-sign-up]");
+const signInBtn = document.querySelector(".sign-in");
+const signUpBtn = document.querySelector(".sign-up");
+const signUpCard = document.querySelector(".signup-form");
+const signInCard = document.querySelector(".signin-form");
+const overlay = document.querySelector(".form-overlay");
+const signInOverlay = document.querySelector(".sign-in-overlay");
+const errorMessage = document.querySelector(".error");
+const successMessage = document.querySelector(".success");
 
 // question accordian
 
@@ -90,3 +100,153 @@ const movieCardTemplate = show => {
 };
 
 getMovies();
+
+// Form Validation
+
+// Sign Up Button
+signUpBtn.addEventListener("click", () => {
+  // Reset the other sign in for incase a user doesnt exit this on properly and goes straight to clicking it
+  signInOverlay.classList.add("hidden");
+  signInCard.classList.add("hidden");
+  signInCard.classList.remove("animate");
+
+  signUpCard.classList.toggle("hidden");
+  overlay.classList.toggle("hidden");
+  signUpCard.classList.toggle("animate");
+});
+
+// Sign In Button
+signInBtn.addEventListener("click", () => {
+  // Reset the other sign up for incase a user doesnt exit this on properly and goes straight to clicking it
+  overlay.classList.add("hidden");
+  signUpCard.classList.add("hidden");
+  signUpCard.classList.remove("animate");
+
+  signInCard.classList.toggle("hidden");
+  signInOverlay.classList.toggle("hidden");
+  signInCard.classList.toggle("animate");
+});
+
+overlay.addEventListener("click", e => {
+  if (!e.target.classList.contains("form-overlay")) return;
+  signUpCard.classList.add("hidden");
+  overlay.classList.add("hidden");
+  signUpCard.classList.remove("animate");
+});
+
+signInOverlay.addEventListener("click", e => {
+  if (!e.target.classList.contains("sign-in-overlay")) return;
+  signInCard.classList.add("hidden");
+  signInOverlay.classList.add("hidden");
+  signInCard.classList.remove("animate");
+});
+
+signInForm.addEventListener("submit", e => {
+  e.preventDefault();
+  const username = signInForm.username.value.trim();
+  const password = signInForm.password.value.trim();
+  const usernameError = document.querySelector("[data-username-error]");
+  const passwordError = document.querySelector("[data-password-error]");
+  const usernameRegex = /^[a-zA-Z0-9]{7,20}$/;
+  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+  // Username Validation
+
+  if (!usernameRegex.test(username)) {
+    usernameError.textContent = "Username doesn't exist";
+    usernameError.classList.remove("hidden");
+  } else {
+    usernameError.classList.add("hidden");
+    console.log("username successful");
+  }
+
+  // Password Validation
+
+  if (!passwordRegex.test(password)) {
+    passwordError.textContent = "Password you've entered is invalid";
+    passwordError.classList.remove("hidden");
+  } else {
+    passwordError.classList.add("hidden");
+  }
+
+  if (usernameRegex.test(username) && passwordRegex.test(password)) {
+    successMessage.textContent = "You've logged in successfully";
+    successMessage.classList.remove("hidden");
+    setTimeout(() => {
+      successMessage.classList.add("hidden");
+      signInCard.classList.add("hidden");
+      signInCard.classList.remove("animate");
+      signInOverlay.classList.add("hidden");
+      signInForm.reset();
+    }, 1500);
+  }
+});
+
+signUpForm.addEventListener("submit", e => {
+  e.preventDefault();
+  const username = signUpForm.username.value.trim();
+  const email = signUpForm.email.value.trim();
+  const password = signUpForm.password.value.trim();
+  const confirmPassword = signUpForm.confirmedPassword.value.trim();
+  const checkbox = signUpForm.checkbox.checked;
+  const emailRegex = /\S+@\S+\.\S+/;
+  const usernameRegex = /^[a-zA-Z0-9]{7,20}$/;
+  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+  let message = [];
+
+  // Username Validation
+  if (!usernameRegex.test(username))
+    message.push("Username must be a minimum 7 characters");
+
+  // Email Validation
+  if (!emailRegex.test(email)) message.push("Email is not valid");
+
+  // Password Validation
+  if (!passwordRegex.test(password))
+    message.push(
+      "Password must be a minimum 8 characters, at least 1 letter and 1 number"
+    );
+
+  // Confirm Password Validation
+  if (!passwordRegex.test(confirmPassword)) {
+    message.push(
+      "Password must be a minimum 8 characters, at least 1 letter and 1 number"
+    );
+  } else if (password !== confirmPassword) {
+    message.push("Passwords don't match");
+  } else {
+    console.log("passwords matched");
+  }
+
+  // Checkbox Validation
+  if (!checkbox) message.push("Please accept our Terms and Conditions"); // checkbox works
+
+  errorMessage.innerText = message.join(", ");
+
+  if (
+    !usernameRegex.test(username) ||
+    !emailRegex.test(email) ||
+    !passwordRegex.test(password) ||
+    !passwordRegex.test(confirmPassword) ||
+    password !== confirmPassword ||
+    !checkbox
+  ) {
+    errorMessage.classList.remove("success");
+    errorMessage.classList.remove("hidden");
+  } else {
+    errorMessage.textContent =
+      "You have successfully signed up to Animestudio+";
+    errorMessage.classList.add("success");
+    errorMessage.classList.remove("hidden");
+
+    setTimeout(() => {
+      errorMessage.classList.add("hidden");
+      signUpCard.classList.add("hidden");
+      signUpCard.classList.remove("animate");
+      overlay.classList.add("hidden");
+      errorMessage.classList.remove("success");
+      signUpForm.reset();
+    }, 1500);
+  }
+});

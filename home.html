@@ -32,9 +32,80 @@
         <a href="home.html" class="logo"><span class="bold">anime</span>studio<span class="text-accent">+</span></a>
         <ul class="nav-list">
           <li><a class="sign-in" href="#">sign in</a></li>
-          <li><a class="btn" href="#">sign up</a></li>
+          <li><a class="btn sign-up" href="#">sign up</a></li>
         </ul>
       </nav>
+
+      <!-- Sign In form -->
+
+      <div class="signing-form signin-form hidden">
+        <div class="description">
+          <h2 class="section-title">Animestudio<span class="text-accent">&#43;</span> Welcomes You Back</h2>
+          <p class="spacer">You've been missed!</p>
+        </div>
+        <form action="#" class="spacer" data-sign-in>
+          <p class="success hidden"></p>
+          <div class="signup-info">
+            <div class="user-info">
+              <label for="username">Username</label>
+              <input type="text" name="username" id="username" placeholder="Username">
+              <p class="sign-in-error hidden" data-username-error></p>
+            </div>
+            <div class="user-info">
+              <label for="password">Password</label>
+              <input type="password" name="password" id="password" placeholder="Password">
+              <p class="sign-in-error hidden" data-password-error></p>
+            </div>
+            <div class="user-info user-info--extra">
+              <div class="checkbox-group">
+                <input type="checkbox" name="checkbox" id="checkbox" value="value">
+                <label for="checkbox">Remember Me</label>
+              </div>
+              <p class="fake-link">Forgot Password?</p>
+            </div>
+            <button type="submit" class="btn spacer">Sign In</button>
+          </div>
+        </form>
+      </div>
+      <!-- Sign Up form -->
+      <div class="signing-form signup-form hidden">
+        <div class="description">
+          <h2 class="section-title">Animestudio<span class="text-accent">&#43;</span> Welcomes You</h2>
+          <p class="spacer">Enter your information below to be able to have access to anime.</p>
+        </div>
+        <form action="#" class="spacer" data-sign-up>
+          <p class="error hidden"></p>
+          <div class="signup-info">
+            <div class="user-info">
+              <label for="username">Username</label>
+              <input type="text" name="username" id="username" placeholder="Username">
+            </div>
+            <div class="user-info">
+              <label for="email">Email</label>
+              <input type="email" name="email" id="email" placeholder="Email address">
+            </div>
+            <div class="user-info">
+              <label for="password">Password</label>
+              <input type="password" name="password" id="password" placeholder="Password">
+            </div>
+            <div class="user-info">
+              <label for="confirm-password">Confirm password</label>
+              <input type="password" name="confirmedPassword" id="confirm-password" placeholder="Confirm password">
+            </div>
+            <div class="user-info user-info--checkbox">
+              <input type="checkbox" name="checkbox" id="checkbox" value="value">
+              <label class="checkbox" for="checkbox">Creating an account means you're okay with our <span>Terms of
+                  Services, Privacy Policy</span>, and our default<span>
+                  Notification Settings</span></label>
+            </div>
+            <button type="submit" class="btn spacer">Sign Up</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="form-overlay hidden"></div>
+      <div class="sign-in-overlay hidden"></div>
+
     </div>
   </header>
   <main>
