@@ -65,22 +65,25 @@
   margin-right: auto;
   border-radius: var(--border-radius);
   background-color: var(--clr-base);
-  width: 85%;
+  width: 90%;
   max-width: 28rem;
 
-  @media (min-width: 50em) {
-    form {
-      --spacer: 1.5rem;
-    }
-  }
-
   .section-title {
-    --fs-700: 3rem;
+    @media (min-width: 50em) {
+      --fs-700: 3rem;
+    }
     text-align: left;
   }
 
   .description {
-    --spacer: 1.5rem;
+    --spacer: 1rem;
+  }
+
+  form {
+    --spacer: 1rem;
+    @media (min-width: 50em) {
+      --spacer: 1.5rem;
+    }
   }
 
   form > * + * {
@@ -92,7 +95,10 @@
   }
 
   button[type="submit"] {
-    margin-top: 2rem;
+    margin-top: 1rem;
+    @media (min-width: 50em) {
+      margin-top: 2rem;
+    }
   }
 
   .user-info {
@@ -189,7 +195,7 @@
   }
 
   .checkbox {
-    font-size: var(--fs-300);
+    font-size: 0.7rem;
     font-weight: var(--fw-600);
     color: var(--clr-grey-600);
     opacity: 0.6;
@@ -233,12 +239,16 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: calc(100vh - var(--header-height));
+  height: calc(200vh - var(--header-height));
   cursor: pointer;
   background-color: var(--clr-accent);
   opacity: 0.9;
   transform: translateX(0);
   transition: transform var(--animation-350);
+
+  @media (min-width: 50em) {
+    height: calc(100vh - var(--header-height));
+  }
 }
 
 // Hidden classes for hiding form and overlay

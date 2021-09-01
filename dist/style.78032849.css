@@ -510,20 +510,27 @@ h2,
   margin-right: auto;
   border-radius: var(--border-radius);
   background-color: var(--clr-base);
-  width: 85%;
+  width: 90%;
   max-width: 28rem;
+}
+.signing-form .section-title {
+  text-align: left;
+}
+@media (min-width: 50em) {
+  .signing-form .section-title {
+    --fs-700: 3rem;
+  }
+}
+.signing-form .description {
+  --spacer: 1rem;
+}
+.signing-form form {
+  --spacer: 1rem;
 }
 @media (min-width: 50em) {
   .signing-form form {
     --spacer: 1.5rem;
   }
-}
-.signing-form .section-title {
-  --fs-700: 3rem;
-  text-align: left;
-}
-.signing-form .description {
-  --spacer: 1.5rem;
 }
 .signing-form form > * + * {
   margin-top: 1em;
@@ -532,7 +539,12 @@ h2,
   margin-top: 1em;
 }
 .signing-form button[type=submit] {
-  margin-top: 2rem;
+  margin-top: 1rem;
+}
+@media (min-width: 50em) {
+  .signing-form button[type=submit] {
+    margin-top: 2rem;
+  }
 }
 .signing-form .user-info {
   display: flex;
@@ -620,7 +632,7 @@ h2,
   }
 }
 .signup-form .checkbox {
-  font-size: var(--fs-300);
+  font-size: 0.7rem;
   font-weight: var(--fw-600);
   color: var(--clr-grey-600);
   opacity: 0.6;
@@ -656,12 +668,18 @@ h2,
   bottom: 0;
   left: 0;
   right: 0;
-  height: calc(100vh - var(--header-height));
+  height: calc(200vh - var(--header-height));
   cursor: pointer;
   background-color: var(--clr-accent);
   opacity: 0.9;
   transform: translateX(0);
   transition: transform var(--animation-350);
+}
+@media (min-width: 50em) {
+  .form-overlay,
+.sign-in-overlay {
+    height: calc(100vh - var(--header-height));
+  }
 }
 
 .form-overlay.hidden,

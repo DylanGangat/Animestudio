@@ -148,7 +148,16 @@ const navFixed = entries => {
   const [entry] = entries; // it will run at least once the moment it is observer is initialized so i put the a check in place.
 
   if (!entry.isIntersecting) {
-    header.classList.add("fixed");
+    header.classList.add("fixed"); // If you scroll down past the 1st section the form becomes absolute meaning you wont have access to other inputs because you can't scroll further so i made the sign in/sign up forms only available in the 1st section where you can scroll to at least get the last few inputs without leaving the the 1st section where observer won't be intersecting resulting in hidding the elements.
+    // Sign In Form
+
+    signInCard.classList.add("hidden");
+    signInCard.classList.remove("animate");
+    signInOverlay.classList.add("hidden"); // Sign Up Form
+
+    signUpCard.classList.add("hidden");
+    signUpCard.classList.remove("animate");
+    overlay.classList.add("hidden");
   } else {
     header.classList.remove("fixed");
   }
@@ -262,7 +271,6 @@ signInForm.addEventListener("submit", e => {
     usernameError.classList.remove("hidden");
   } else {
     usernameError.classList.add("hidden");
-    console.log("username successful");
   } // Password Validation
 
 
@@ -361,7 +369,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61146" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61718" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
